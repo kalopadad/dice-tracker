@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dice Tracker">
+<meta name="theme-color" content="#0a1a12">
+<title>Dice Tracker</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAF9UlEQVR4Xu3dPW4cRxCGYXGhiJFgCAwcEoYjBwJ0Id1AZ9ENdCFnigTDB2CkSKFlNIVezQ7np6Znuqr7m/cBlNijaS75stDcbXHv7n//7cerYPcPb4I/Ahzh+9O3I26zy+tdf7sQAWsaf10jAncLmojPZ/g194q7atBEjMwr7ipBEzKW5D5qTO3L0Z96YoZVjVYOm9A1PjjoO3paHzKhiRl7HdXQrgl91AcBJEdM6+IJTcyoZU9bRUHvWRCwKG1sc9ClCwFblbS2KeiSBYA9tjZnDnrrjYGjbGnPFPSWGwI1WBtcDdp6I6A2S4urQQM9WQza8h0BeFprcjbotb8IRFlqky0HpEwGzXRG6+YafRE0MaMXU62y5YCUm6CZzujNuFkmNKQQNKRcg2a7gV4N22VCQwpBQ8pz0Gw30LvcMBMaUggaUggaUi7sn6EitcyEhhSChhSChhSChhSChhSChpRdvx+6ln8//VXr1m4eP35xWwu/3L199xj+xpuZQshjhO2rmaCHMV/ef/b9LFTw398frnclaj/hQauFPEbYvpr5oVBhKk9RfVytCg06T2f1L3p+fIo/I7QmLOizxJwRtY+woIEaQoI+23RmSvsJCRqohaAhpcmXvuc8/PnHzf96+vqP6xcjen2s62ZCj2NKpv5bLdHrw6aLoJfC9Yg6en3YNR+0JVjLNaUs97ZcAx/NBw1sQdCQQtCQ0nzQlqfmLNeUstzbcg18NB90shSMR0zR68Oui6DnovaIOZtay3N92HT1SmF0QNHrY103ExqwIGhIIWhIIWhIIWhI6epZjujzyNHrY103Ezr6PHL0+rDpIujo88jR68Ou+aCXYsos15Sy3NtyDXw0HzSwBUFDCkFDSvNBWw4EWa4pZbm35Rr4aD7oJPo8cvT6sOsi6LmoPScj56H70NUrhZ4BT4leH+u6mdCARVcTWonCb/Nv8c2QmNAolr4pW/vGZEI7Gr4jlsL7yuTHk6JuZVoTtAO1kLP8TZkeX57U0WF3FXT0eeS96ytM5SnpcQ2/aSN1s4eOPo9cun7+QqvGPJ7W0XvqLoKOPo9cuv5ZYm4p6uaDXoops1xTynJvyzXw0XzQvTrbdG5lShM0pBA0pDQftOVAkOWaUpZ7W66xSvvx4R9s03zQSfR5ZK/1S58axC9dBD0X9ZGTcU3t89ClTw3iVlevFHoGPKXW+pan/dI1tdZX0s2EBiwIGlIIGlJCgs5HDFs5oRXNsje2XINXMUHjJa+nBtWFTOiEKW2Lmsm8TVjQRD0tBTz8g21Cgx5iP40jhAedth7D7QdhY49mXilMUed/vkPUKBU+oYeG0xoo0cyEHofdu+h/LHpWTQaNcnt/1ULvmtpyYB/OU/NKoQzOU//EhBawFHNmuUYBQUMKQUMKQUMKQQuwnMizXKOAoEVwnppnOeTU/lULPeCVQjFn2VrMYcsBKQQNKQQNKQQNKQQNKTzLgRu9n6dmQuNK4Tw1QeOZynlqgsZizNlS8C0haEghaEghaEghaJgONPVy6Img8UzlPDVB40rhPDWvFOJGL1uLOUxoSCFoSCFoSCHoSs76pkj5l9Xnx++NoCGFoCs625SOns4JQVd2lqhbiJmgnam+GVJLj+vu7bvHH85f19Mavu/K5f3n7j8Pw5CjfggcI2hnim8m1ErMCUEHUQi7pZAzgoYUnuWAFIKGlMv3p29SDwjnlVpmQkMKQUMKQUPKc9Dso9G73DATGlIIGlKuQbPtQK+G7TKhIYWgIeUmaLYd6M24WSY0pLwImimNXky1OjmhiRqtm2uULQekzAbNlEarltpcnNBEjdasNcmWA1JWg177jgC8WFpcDTqx3AioydqgKWiiRiRrzIk5aKJGhC0xbw6aqOFpa8xFQRM1PJTEXBw0UaOm0piTXe9TmBe+f3hT8/HhJPaEnG36oXDOER8Izu2ohnZN6CGmNUocFfKhE3oqbGDN0THv3kOvbUHYW2NKjZCzw7Ycax84cZ9bzYiHqgY9txUh7nPwijgk6Lm4EwLXEBHw2P+1QBvFfHobLQAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAF9UlEQVR4Xu3dPW4cRxCGYXGhiJFgCAwcEoYjBwJ0Id1AZ9ENdCFnigTDB2CkSKFlNIVezQ7np6Znuqr7m/cBlNijaS75stDcbXHv7n//7cerYPcPb4I/Ahzh+9O3I26zy+tdf7sQAWsaf10jAncLmojPZ/g194q7atBEjMwr7ipBEzKW5D5qTO3L0Z96YoZVjVYOm9A1PjjoO3paHzKhiRl7HdXQrgl91AcBJEdM6+IJTcyoZU9bRUHvWRCwKG1sc9ClCwFblbS2KeiSBYA9tjZnDnrrjYGjbGnPFPSWGwI1WBtcDdp6I6A2S4urQQM9WQza8h0BeFprcjbotb8IRFlqky0HpEwGzXRG6+YafRE0MaMXU62y5YCUm6CZzujNuFkmNKQQNKRcg2a7gV4N22VCQwpBQ8pz0Gw30LvcMBMaUggaUggaUi7sn6EitcyEhhSChhSChhSChhSChhSChpRdvx+6ln8//VXr1m4eP35xWwu/3L199xj+xpuZQshjhO2rmaCHMV/ef/b9LFTw398frnclaj/hQauFPEbYvpr5oVBhKk9RfVytCg06T2f1L3p+fIo/I7QmLOizxJwRtY+woIEaQoI+23RmSvsJCRqohaAhpcmXvuc8/PnHzf96+vqP6xcjen2s62ZCj2NKpv5bLdHrw6aLoJfC9Yg6en3YNR+0JVjLNaUs97ZcAx/NBw1sQdCQQtCQ0nzQlqfmLNeUstzbcg18NB90shSMR0zR68Oui6DnovaIOZtay3N92HT1SmF0QNHrY103ExqwIGhIIWhIIWhIIWhI6epZjujzyNHrY103Ezr6PHL0+rDpIujo88jR68Ou+aCXYsos15Sy3NtyDXw0HzSwBUFDCkFDSvNBWw4EWa4pZbm35Rr4aD7oJPo8cvT6sOsi6LmoPScj56H70NUrhZ4BT4leH+u6mdCARVcTWonCb/Nv8c2QmNAolr4pW/vGZEI7Gr4jlsL7yuTHk6JuZVoTtAO1kLP8TZkeX57U0WF3FXT0eeS96ytM5SnpcQ2/aSN1s4eOPo9cun7+QqvGPJ7W0XvqLoKOPo9cuv5ZYm4p6uaDXoops1xTynJvyzXw0XzQvTrbdG5lShM0pBA0pDQftOVAkOWaUpZ7W66xSvvx4R9s03zQSfR5ZK/1S58axC9dBD0X9ZGTcU3t89ClTw3iVlevFHoGPKXW+pan/dI1tdZX0s2EBiwIGlIIGlJCgs5HDFs5oRXNsje2XINXMUHjJa+nBtWFTOiEKW2Lmsm8TVjQRD0tBTz8g21Cgx5iP40jhAedth7D7QdhY49mXilMUed/vkPUKBU+oYeG0xoo0cyEHofdu+h/LHpWTQaNcnt/1ULvmtpyYB/OU/NKoQzOU//EhBawFHNmuUYBQUMKQUMKQUMKQQuwnMizXKOAoEVwnppnOeTU/lULPeCVQjFn2VrMYcsBKQQNKQQNKQQNKQQNKTzLgRu9n6dmQuNK4Tw1QeOZynlqgsZizNlS8C0haEghaEghaEghaJgONPVy6Img8UzlPDVB40rhPDWvFOJGL1uLOUxoSCFoSCFoSCHoSs76pkj5l9Xnx++NoCGFoCs625SOns4JQVd2lqhbiJmgnam+GVJLj+vu7bvHH85f19Mavu/K5f3n7j8Pw5CjfggcI2hnim8m1ErMCUEHUQi7pZAzgoYUnuWAFIKGlMv3p29SDwjnlVpmQkMKQUMKQUPKc9Dso9G73DATGlIIGlKuQbPtQK+G7TKhIYWgIeUmaLYd6M24WSY0pLwImimNXky1OjmhiRqtm2uULQekzAbNlEarltpcnNBEjdasNcmWA1JWg177jgC8WFpcDTqx3AioydqgKWiiRiRrzIk5aKJGhC0xbw6aqOFpa8xFQRM1PJTEXBw0UaOm0piTXe9TmBe+f3hT8/HhJPaEnG36oXDOER8Izu2ohnZN6CGmNUocFfKhE3oqbGDN0THv3kOvbUHYW2NKjZCzw7Ycax84cZ9bzYiHqgY9txUh7nPwijgk6Lm4EwLXEBHw2P+1QBvFfHobLQAAAABJRU5ErkJggg==">
+<style>
+:root{
+  --bg:#0a1a12; --panel:#12281c; --panel2:#17352500; --card:#143022; --line:#24503a;
+  --ink:#eef6f0; --mut:#93b3a0; --acc:#f2c14e; --acc2:#3ddc97; --bad:#ff6b6b; --warn:#ffb454; --blue:#6cb6ff;
+  --r:16px; --safeB:env(safe-area-inset-bottom,0px); --safeT:env(safe-area-inset-top,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.35 -apple-system,BlinkMacSystemFont,"SF Pro Text",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-text-size-adjust:100%;overscroll-behavior:none}
+body{min-height:100vh}
+#app{padding:calc(10px + var(--safeT)) 12px calc(86px + var(--safeB));max-width:640px;margin:0 auto}
+h1{font-size:22px;margin:4px 2px 10px;letter-spacing:.2px}
+h2{font-size:15px;margin:18px 2px 8px;color:var(--acc);text-transform:uppercase;letter-spacing:.8px}
+h3{font-size:14px;margin:0 0 6px;color:var(--ink)}
+.mut{color:var(--mut)} .small{font-size:12.5px} .tiny{font-size:11.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin:10px 0}
+.row{display:flex;gap:8px;align-items:center}.row.wrap{flex-wrap:wrap}.sp{flex:1}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tile{background:#0f2519;border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-width:0}
+.tile .k{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+.tile .v{font-size:22px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .s{font-size:11px;color:var(--mut);margin-top:1px}
+button,.btn{font:inherit;color:var(--ink);background:#1d4430;border:1px solid var(--line);border-radius:12px;padding:11px 14px;min-height:44px;cursor:pointer;touch-action:manipulation}
+button:active{transform:scale(.97)}
+button.pri{background:var(--acc);color:#2a1f00;border-color:var(--acc);font-weight:700}
+button.go{background:var(--acc2);color:#04281a;border-color:var(--acc2);font-weight:700}
+button.dng{background:#4a1f24;border-color:#7a2c34;color:#ffd5d5}
+button.ghost{background:transparent}
+button.sm{padding:6px 10px;min-height:34px;font-size:14px;border-radius:10px}
+button:disabled{opacity:.45}
+input,select,textarea{font:inherit;color:var(--ink);background:#0d2016;border:1px solid var(--line);border-radius:10px;padding:10px;width:100%;min-height:44px}
+label{display:block;font-size:12.5px;color:var(--mut);margin:10px 0 4px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:var(--ink);font-size:15px}
+.chk input{width:22px;height:22px;min-height:0;margin:1px 0 0}
+.tabs{position:fixed;left:0;right:0;bottom:0;background:#08150eef;backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+  padding:6px 6px calc(6px + var(--safeB));z-index:20}
+.tabs button{flex:1;background:transparent;border:0;border-radius:10px;padding:6px 2px;min-height:48px;font-size:11px;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px}
+.tabs button b{font-size:20px;line-height:1;font-weight:400}
+.tabs button.on{color:var(--acc);background:#17301f}
+.pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700;background:#25503a;color:var(--ink);white-space:nowrap}
+.pill.come{background:#2c4a7a;color:#dbe9ff}.pill.point{background:var(--acc);color:#2a1f00}
+.pill.bad{background:#7a2c34;color:#ffe0e0}.pill.good{background:#1f6b45;color:#dfffee}.pill.warn{background:#7a5a1e;color:#fff1d2}
+.bigrun{font-size:64px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;color:var(--acc)}
+.cam{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;max-height:34vh}
+.cam video{width:100%;height:100%;object-fit:cover;display:block}
+.cam .rec{position:absolute;top:8px;left:8px;background:#000a;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:700;display:flex;gap:6px;align-items:center}
+.cam .rec i{width:9px;height:9px;border-radius:50%;background:#ff3b3b;display:inline-block;animation:bl 1s infinite}
+@keyframes bl{50%{opacity:.25}}
+.pad{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.pad button{padding:0;min-height:66px;font-size:28px;font-weight:800;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;border-radius:14px}
+.pad button small{font-size:10px;font-weight:600;letter-spacing:.3px;opacity:.85}
+.pad button.on-ax{border-color:#2d7a55}.pad button.off-ax{border-color:#7a5a1e;background:#2a2a18}
+.pad button.sel{background:var(--acc);color:#2a1f00;border-color:var(--acc)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;-webkit-overflow-scrolling:touch}
+.chip{flex:0 0 auto;border-radius:10px;padding:5px 9px;background:#0f2519;border:1px solid var(--line);font-size:13px;font-variant-numeric:tabular-nums;text-align:center;min-width:46px}
+.chip b{display:block;font-size:16px}.chip.seven{background:#5a2328;border-color:#8a3a42}.chip.made{background:#1d5a3b;border-color:#2e8a5c}.chip.point{background:#6a5316;border-color:#a68424}
+.chip.craps{background:#33284f;border-color:#5b4a8a}.chip.nat{background:#173b5a;border-color:#2f6c9e}
+table{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);text-align:right;padding:5px 4px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+td{padding:6px 4px;border-bottom:1px solid #1b3b2b;text-align:right}
+tr.hl td{background:#2a2a16}tr.tap{cursor:pointer}
+.bar{position:relative;height:8px;border-radius:4px;background:#0c1d14;min-width:50px}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--acc2)}
+.bar u{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--acc);border-radius:1px}
+.up{color:var(--warn)}.dn{color:var(--blue)}.ok{color:var(--acc2)}.badc{color:var(--bad)}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin:10px 0;padding:0 12px}
+details>summary{list-style:none;padding:13px 0;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;color:var(--acc)}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"＋";color:var(--mut)}details[open]>summary::after{content:"－"}
+details>div{padding-bottom:12px}
+.heat{display:grid;grid-template-columns:22px repeat(6,1fr);gap:3px;font-size:12px;text-align:center}
+.heat div{padding:7px 0;border-radius:6px;background:#0f2519}.heat .h{background:transparent;color:var(--mut);font-weight:700}
+.toast{position:fixed;left:50%;transform:translateX(-50%);top:calc(10px + var(--safeT));background:#000d;border:1px solid var(--line);padding:10px 16px;border-radius:999px;z-index:40;font-weight:600;max-width:90%;text-align:center}
+.modal{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-end;justify-content:center}
+.modal .bd{position:absolute;inset:0;background:#000a}
+.modal .sheet{position:relative;background:#10261a;border:1px solid var(--line);border-radius:20px 20px 0 0;padding:16px 14px calc(16px + var(--safeB));width:100%;max-width:640px;max-height:90vh;overflow:auto}
+.warnbox{background:#3a2b10;border:1px solid #7a5a1e;border-radius:12px;padding:10px 12px;font-size:13.5px;margin:10px 0}
+.empty{padding:26px 10px;text-align:center;color:var(--mut)}
+.runbars{display:flex;flex-wrap:wrap;gap:4px}.runbars span{background:#0f2519;border:1px solid var(--line);border-radius:8px;padding:3px 7px;font-size:13px;font-variant-numeric:tabular-nums}
+.runbars .lo{border-color:#7a2c34;color:#ffb3b3}.runbars .hi{border-color:#2e8a5c;color:#b8ffd9}
+a{color:var(--blue)}
+video.play{width:100%;border-radius:12px;background:#000;max-height:46vh}
+.hide{display:none!important}
+.cam.rv{aspect-ratio:auto;height:25vh;max-height:none}.cam.rv video{object-fit:contain;background:#000}
+textarea{font:inherit;color:var(--ink);background:#0d2016;border:1px solid var(--line);border-radius:10px;padding:10px;width:100%}
+.btn.go{background:var(--acc2);color:#04281a;border-color:var(--acc2);font-weight:700}.btn.pri{background:var(--acc);color:#2a1f00;border-color:var(--acc);font-weight:700}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<nav class="tabs" id="tabs"></nav>
+<div id="toastbox"></div>
+<div id="modalbox"></div>
+<script>
+/* Dice Tracker engine — pure logic, no DOM. Mirrors BoneTracker Extended 5.8 concepts.
+   Face positions on a die, as seen by the shooter:
+   0 Top, 1 Front (facing you), 2 Bottom, 3 Back (to wall) = ON-axis (they rotate into each other
+   when a die pitches end-over-end);  4 Left, 5 Right = OFF-axis. */
+(function (root) {
+  'use strict';
+
+  const POS = ['Top', 'Front', 'Bottom', 'Back', 'Left', 'Right'];
+  const WAYS = { 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 7: 6, 8: 5, 9: 4, 10: 3, 11: 2, 12: 1 };
+  const GROUPS = {
+    Across: [4, 5, 6, 8, 9, 10],
+    Inside: [5, 6, 8, 9],
+    Outside: [4, 5, 9, 10],
+    Even: [4, 6, 8, 10],
+    Field: [2, 3, 4, 9, 10, 11, 12],
+    Craps: [2, 3, 12],
+    Horn: [2, 3, 11, 12],
+    World: [2, 3, 7, 11, 12],
+  };
+  const BOX = [4, 5, 6, 8, 9, 10];
+  const CRAP_NUMS = [2, 3, 11, 12];
+  const RBS_MAX = 20; // histogram bucket 20 means "20 or more"
+
+  // ---------- dice sets ----------
+  function dieFaces(d) { return [d.top, d.front, 7 - d.top, 7 - d.front, d.left, 7 - d.left]; }
+
+  function validateDie(d) {
+    const v = [d.top, d.front, d.left];
+    if (v.some(x => !Number.isInteger(x) || x < 1 || x > 6)) return 'Pick a number 1–6 for Top, Facing you and Left.';
+    if (new Set(v).size < 3) return 'Top, Facing you and Left must be three different numbers.';
+    if (v[0] + v[1] === 7 || v[0] + v[2] === 7 || v[1] + v[2] === 7)
+      return 'Two of those are opposite faces (they add to 7). Pick three faces that meet at one corner.';
+    return null;
+  }
+  function validateSet(s) {
+    if (!s || !s.name || !String(s.name).trim()) return 'Give the set a name.';
+    const a = validateDie(s.left); if (a) return 'Left die: ' + a;
+    const b = validateDie(s.right); if (b) return 'Right die: ' + b;
+    return null;
+  }
+
+  // ---------- one roll ----------
+  function classify(set, l, r) {
+    const lf = dieFaces(set.left), rf = dieFaces(set.right);
+    const li = lf.indexOf(l), ri = rf.indexOf(r);
+    const lOn = li < 4, rOn = ri < 4;
+    const both = lOn && rOn;
+    const diff = both ? (((ri - li) % 4) + 4) % 4 : -1;
+    return {
+      l, r, result: l + r, li, ri, lOn, rOn,
+      bothOn: both,
+      primary: both && diff === 0,          // both dice show the same position
+      single: both && (diff === 1 || diff === 3), // one die a quarter-turn from the other
+      dbl: both && diff === 2,              // one die a half-turn from the other
+      loff: !lOn && rOn, roff: lOn && !rOn, boff: !lOn && !rOn,
+      oneOff: lOn !== rOn,
+      hard: l === r ? l + r : 0,
+      poi: POS[li] + '-' + POS[ri],
+      prime: !both ? 'X' : diff === 0 ? 'P' : 'S',
+    };
+  }
+
+  // ---------- craps hands, come-out/point phase, rolls-before-seven runs ----------
+  // rolls: [{l, r, brk?}]  brk=true means "a break happened before this roll" (new hand, new run).
+  // opts.crapsEndsRun (default true): a come-out craps (2/3/12) also ends a run.
+  function analyze(rolls, o) {
+    const opt = Object.assign({ crapsEndsRun: true }, o || {});
+    const ann = [], hands = [], runs = [], sevenRuns = [];
+    let point = null;
+    const newHand = (i) => ({ idx: hands.length + 1, start: i, rolls: 0, beforeSeven: 0, established: 0, made: 0, naturals: 0, craps: 0, ended: null });
+    const newRun = (i) => ({ start: i, len: 0, ender: null, complete: false });
+    const newSR = (i) => ({ start: i, len: 0, ender: null, complete: false, counts: {} });
+    let hand = newHand(0), run = newRun(0), sr = newSR(0);
+    hands.push(hand); runs.push(run); sevenRuns.push(sr);
+
+    const breakAll = (i) => {
+      hand.ended = 'break'; run.ender = 'break'; sr.ender = 'break';
+      hand = newHand(i); run = newRun(i); sr = newSR(i);
+      hands.push(hand); runs.push(run); sevenRuns.push(sr);
+      point = null;
+    };
+
+    rolls.forEach((rl, i) => {
+      if (rl.brk && i > 0) breakAll(i);
+      const t = rl.l + rl.r;
+      const phase = point == null ? 'come' : 'point';
+      let tag = '';
+      if (phase === 'come') {
+        if (t === 7 || t === 11) { tag = 'natural'; hand.naturals++; }
+        else if (t === 2 || t === 3 || t === 12) { tag = 'craps'; hand.craps++; }
+        else { tag = 'point'; point = t; hand.established++; }
+      } else if (t === 7) tag = 'sevenout';
+      else if (t === point) { tag = 'made'; hand.made++; }
+
+      ann.push({ i, t, phase, pointBefore: phase === 'point' ? point : null, tag,
+        hand: hand.idx, runPos: run.len, handPos: hand.rolls + 1, hard: rl.l === rl.r && t >= 4 && t <= 10 });
+
+      hand.rolls++;
+      // runs (user-defined: 7, plus optionally come-out craps)
+      const enderRun = t === 7 || (opt.crapsEndsRun && tag === 'craps');
+      if (enderRun) {
+        run.ender = t === 7 ? 7 : 'craps'; run.complete = true;
+        run = newRun(i + 1); runs.push(run);
+      } else run.len++;
+      // seven-to-seven (Bone Tracker's "Rolls Between Sevens")
+      if (t === 7) {
+        sr.ender = 7; sr.complete = true;
+        sr = newSR(i + 1); sevenRuns.push(sr);
+      } else { sr.len++; sr.counts[t] = (sr.counts[t] || 0) + 1; }
+
+      if (tag === 'sevenout') {
+        hand.beforeSeven = hand.rolls - 1; hand.ended = 'sevenout';
+        point = null;
+        hand = newHand(i + 1); hands.push(hand);
+      } else hand.beforeSeven = hand.rolls;
+      // after a made point / natural / craps / point established the hand just continues
+      if (tag === 'made') point = null;
+    });
+
+    // the last container in each list is the still-open one; callers only use completed ones for stats
+    const live = { point, phase: point == null ? 'come' : 'point', hand, run, sr };
+    return { ann, hands, runs, sevenRuns, live, opt };
+  }
+
+  // ---------- statistics ----------
+  function lgamma(z) {
+    const g = 7, c = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313,
+      -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+    if (z < 0.5) return Math.log(Math.PI / Math.sin(Math.PI * z)) - lgamma(1 - z);
+    z -= 1; let x = c[0]; const t = z + g + 0.5;
+    for (let i = 1; i < g + 2; i++) x += c[i] / (z + i);
+    return 0.5 * Math.log(2 * Math.PI) + (z + 0.5) * Math.log(t) - t + Math.log(x);
+  }
+  function gammaQ(a, x) { // regularized upper incomplete gamma
+    if (x <= 0) return 1;
+    if (x < a + 1) {
+      let sum = 1 / a, term = 1 / a, n = a;
+      for (let i = 0; i < 1000; i++) { n += 1; term *= x / n; sum += term; if (Math.abs(term) < Math.abs(sum) * 1e-15) break; }
+      return 1 - sum * Math.exp(-x + a * Math.log(x) - lgamma(a));
+    }
+    let b = x + 1 - a, c = 1 / 1e-300, d = 1 / b, h = d;
+    for (let i = 1; i < 1000; i++) {
+      const an = -i * (i - a); b += 2;
+      d = an * d + b; if (Math.abs(d) < 1e-300) d = 1e-300;
+      c = b + an / c; if (Math.abs(c) < 1e-300) c = 1e-300;
+      d = 1 / d; const del = d * c; h *= del; if (Math.abs(del - 1) < 1e-15) break;
+    }
+    return Math.exp(-x + a * Math.log(x) - lgamma(a)) * h;
+  }
+  const chiP = (x2, df) => gammaQ(df / 2, x2 / 2);
+
+  function wilson(k, n, z) {
+    z = z || 1.96;
+    if (!n) return null;
+    const p = k / n, d = 1 + z * z / n;
+    const c = (p + z * z / (2 * n)) / d, w = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d;
+    return [Math.max(0, c - w), Math.min(1, c + w)];
+  }
+  const mean = a => a.length ? a.reduce((s, x) => s + x, 0) / a.length : null;
+  const median = a => { if (!a.length) return null; const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+
+  // sessions: [{set, rolls:[{l,r,brk?}]}]  -> combined stats (runs never span two sessions)
+  function computeStats(sessions, o) {
+    const opt = Object.assign({ crapsEndsRun: true }, o || {});
+    const S = {
+      n: 0, sevens: 0,
+      numCount: {}, hardCount: {}, axis: { both: 0, primary: 0, single: 0, dbl: 0, oneOff: 0, loff: 0, roff: 0, bothOff: 0 },
+      faceL: Array(6).fill(0), faceR: Array(6).fill(0), poi: {}, grid: Array.from({ length: 6 }, () => Array(6).fill(0)),
+    };
+    for (let t = 2; t <= 12; t++) S.numCount[t] = 0;
+    const allRuns = [], allSR = [], allHands = [];
+    const cycle = { natural: 0, craps: 0, established: 0, made: 0, sevenOut: 0 };
+    let cur = null;
+
+    sessions.forEach(ss => {
+      const rolls = ss.rolls || [];
+      rolls.forEach(rl => {
+        const c = classify(ss.set, rl.l, rl.r);
+        S.n++; S.numCount[c.result]++;
+        if (c.result === 7) S.sevens++;
+        if (c.hard) S.hardCount[c.hard === 2 ? 'Aces' : c.hard === 12 ? 'Boxcars' : 'H' + c.hard] = (S.hardCount[c.hard === 2 ? 'Aces' : c.hard === 12 ? 'Boxcars' : 'H' + c.hard] || 0) + 1;
+        if (c.bothOn) S.axis.both++;
+        if (c.primary) S.axis.primary++;
+        if (c.single) S.axis.single++;
+        if (c.dbl) S.axis.dbl++;
+        if (c.oneOff) S.axis.oneOff++;
+        if (c.loff) S.axis.loff++;
+        if (c.roff) S.axis.roff++;
+        if (c.boff) S.axis.bothOff++;
+        S.faceL[c.li]++; S.faceR[c.ri]++;
+        S.poi[c.poi] = (S.poi[c.poi] || 0) + 1;
+        S.grid[rl.l - 1][rl.r - 1]++;
+      });
+      const a = analyze(rolls, opt);
+      a.runs.forEach(r => { if (r.complete) allRuns.push(r); });
+      a.sevenRuns.forEach(r => { if (r.complete) allSR.push(r); });
+      a.hands.forEach(h => { if (h.ended === 'sevenout') allHands.push(h); });
+      a.ann.forEach(x => {
+        if (x.tag === 'natural') cycle.natural++; else if (x.tag === 'craps') cycle.craps++;
+        else if (x.tag === 'point') cycle.established++; else if (x.tag === 'made') cycle.made++; else if (x.tag === 'sevenout') cycle.sevenOut++;
+      });
+      cur = a;
+    });
+
+    const n = S.n, sev = S.sevens;
+    const out = { n, sevens: sev, hasData: n > 0, cycle };
+    out.srr = sev ? n / sev : null;
+    const ci = wilson(sev, n);
+    out.srrCI = ci && ci[0] > 0 ? [1 / ci[1], 1 / ci[0]] : null;
+    out.expSRR = 6;
+
+    out.dist = [];
+    for (let t = 2; t <= 12; t++) {
+      const p = WAYS[t] / 36, cnt = S.numCount[t], mu = n * p, sd = Math.sqrt(n * p * (1 - p));
+      out.dist.push({ num: t, count: cnt, pct: n ? cnt / n : 0, expPct: p, expCount: mu, lo: Math.max(0, mu - 2 * sd), hi: mu + 2 * sd,
+        z: sd ? (cnt - mu) / sd : 0, out: n >= 36 && sd > 0 && Math.abs(cnt - mu) > 2 * sd });
+    }
+    out.groups = Object.keys(GROUPS).map(name => {
+      const nums = GROUPS[name], cnt = nums.reduce((s, x) => s + S.numCount[x], 0), p = nums.reduce((s, x) => s + WAYS[x], 0) / 36;
+      return { name, nums, count: cnt, pct: n ? cnt / n : 0, expPct: p, gsr: sev ? cnt / sev : null, expGsr: p / (1 / 6) };
+    });
+    const hn = ['H4', 'H6', 'H8', 'H10', 'Aces', 'Boxcars'];
+    out.hard = hn.map(k => ({ name: k, count: S.hardCount[k] || 0, pct: n ? (S.hardCount[k] || 0) / n : 0, expPct: 1 / 36 }));
+    const ax = S.axis;
+    const row = (count, exp) => ({ count, pct: n ? count / n : 0, expPct: exp });
+    out.axis = {
+      both: row(ax.both, 16 / 36), primary: row(ax.primary, 4 / 36), single: row(ax.single, 8 / 36), dbl: row(ax.dbl, 4 / 36),
+      oneOff: row(ax.oneOff, 16 / 36), loff: row(ax.loff, 8 / 36), roff: row(ax.roff, 8 / 36), bothOff: row(ax.bothOff, 4 / 36),
+      // if the dice land on-axis, how are those landings spread? (sheet's "if random on-axis" column)
+      primaryOfOn: ax.both ? ax.primary / ax.both : null, singleOfOn: ax.both ? ax.single / ax.both : null, dblOfOn: ax.both ? ax.dbl / ax.both : null,
+    };
+    out.faces = {
+      left: POS.map((p, i) => ({ pos: p, count: S.faceL[i], pct: n ? S.faceL[i] / n : 0 })),
+      right: POS.map((p, i) => ({ pos: p, count: S.faceR[i], pct: n ? S.faceR[i] / n : 0 })),
+    };
+    out.grid = S.grid;
+    const poiAll = [];
+    POS.forEach(a => POS.forEach(b => poiAll.push({ poi: a + '-' + b, count: S.poi[a + '-' + b] || 0 })));
+    poiAll.sort((x, y) => y.count - x.count || (x.poi < y.poi ? -1 : 1));
+    out.poi = poiAll;
+    // chi-square over the 36 landing combinations (positions), needs expected >=5 per cell => n>=180
+    const e = n / 36;
+    const x2 = poiAll.reduce((s, x) => s + (x.count - e) * (x.count - e) / (e || 1), 0);
+    out.chi = { n, df: 35, x2, p: n ? chiP(x2, 35) : null, ok: n >= 180, need: 180 };
+
+    // rolls between sevens (Bone Tracker R.B.S.)
+    const hist = Array(RBS_MAX + 1).fill(0);
+    allSR.forEach(r => { hist[Math.min(r.len, RBS_MAX)]++; });
+    const lens = allSR.map(r => r.len);
+    const cum = [];
+    for (let k = 1; k <= 6; k++) {
+      const c = lens.filter(x => x <= k).length;
+      cum.push({ label: 'RBS ≤ ' + k, count: c, pct: lens.length ? c / lens.length : 0, rand: 1 - Math.pow(5 / 6, k + 1) });
+    }
+    const gt6 = lens.filter(x => x > 6).length;
+    cum.push({ label: 'RBS > 6', count: gt6, pct: lens.length ? gt6 / lens.length : 0, rand: Math.pow(5 / 6, 7) });
+    const between = {};
+    [...BOX, ...CRAP_NUMS].forEach(t => {
+      const per = allSR.map(r => r.counts[t] || 0);
+      between[t] = { avg: allSR.length ? per.reduce((s, x) => s + x, 0) / allSR.length : null, most: per.length ? Math.max(...per) : null };
+    });
+    out.rbs = { hist, total: lens.length, mean: mean(lens), median: median(lens), max: lens.length ? Math.max(...lens) : null, expMean: 5, cum, between };
+
+    // user-defined runs (every 7, plus optional come-out craps)
+    const rl = allRuns.map(r => r.len);
+    out.runs = { list: allRuns, count: rl.length, mean: mean(rl), median: median(rl), best: rl.length ? Math.max(...rl) : null, last: rl.length ? rl[rl.length - 1] : null };
+    // hands (seven-out to seven-out)
+    const hb = allHands.map(h => h.beforeSeven);
+    out.hands = {
+      list: allHands, count: allHands.length, mean: mean(hb), median: median(hb), best: hb.length ? Math.max(...hb) : null,
+      pointsMade: allHands.reduce((s, h) => s + h.made, 0), pointsEstablished: allHands.reduce((s, h) => s + h.established, 0),
+    };
+    out.expHandBeforeSeven = 7.5255; // fair dice: average rolls in a hand before the seven-out (8.5255 incl. the 7)
+    out.expPointMade = 0.4061;       // fair dice: chance a established point is made before a 7
+    out.live = cur ? cur.live : null;
+    return out;
+  }
+
+  // ---------- CSV ----------
+  function csvEscape(v) { v = v == null ? '' : String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+  function toCSV(sessions, opts) {
+    const head = ['Session', 'Date', 'Dice set', 'Venue/notes', 'Roll#', 'L', 'R', 'Result', 'OnAxisResult', 'Prime(P/S/X)', 'DoublePitch',
+      'Loff', 'Roff', 'Boff', 'Hard', 'L-R', 'POI', 'Phase', 'Point', 'Event', 'Hand#', 'RollsSinceSeven', 'VideoTime(s)'];
+    const lines = [head.join(',')];
+    sessions.forEach(ss => {
+      const a = analyze(ss.rolls, opts);
+      ss.rolls.forEach((rl, i) => {
+        const c = classify(ss.set, rl.l, rl.r), x = a.ann[i];
+        const ev = { natural: 'Natural', craps: 'Craps', point: 'Point set', made: 'Point made', sevenout: 'Seven-out', '': '' }[x.tag];
+        lines.push([ss.name || ss.id, new Date(ss.startedAt).toISOString().slice(0, 16).replace('T', ' '), ss.set.name, ss.notes || '',
+          i + 1, rl.l, rl.r, c.result, c.bothOn ? c.result : 0, c.prime, c.dbl ? 1 : 0, c.loff ? c.result : 0, c.roff ? c.result : 0, c.boff ? c.result : 0,
+          c.hard ? c.hard + 'H' : 0, rl.l + '-' + rl.r, c.poi, x.phase, x.pointBefore || '', ev, x.hand, x.runPos,
+          rl.vt != null ? rl.vt.toFixed(1) : ''].map(csvEscape).join(','));
+      });
+    });
+    return lines.join('\n');
+  }
+
+  const api = { POS, WAYS, GROUPS, BOX, CRAP_NUMS, RBS_MAX, dieFaces, validateDie, validateSet, classify, analyze, computeStats, chiP, wilson, toCSV };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.DT = api;
+})(typeof self !== 'undefined' ? self : this);
+
+/* Dice Tracker vision: finds dice in video frames, waits for them to come to rest, reads the pips.
+   Pure colour + shape analysis (no ML, no network). Works on ImageData-like {data,width,height}. */
+(function (root, factory) { if (typeof module === 'object' && module.exports) module.exports = factory(); else root.DV = factory(); })(typeof self !== 'undefined' ? self : this, function () {
+  'use strict';
+  const TOL_DEFAULT = 40;
+
+  /* ---------- colour model: median luma/chroma of a patch the user tapped ---------- */
+  function sampleModel(img, x, y, rad) {
+    rad = rad || 4;
+    const W = img.width, H = img.height, d = img.data, ys = [], bs = [], rs = [];
+    for (let j = -rad; j <= rad; j++) for (let i = -rad; i <= rad; i++) {
+      const xx = Math.min(W - 1, Math.max(0, Math.round(x) + i)), yy = Math.min(H - 1, Math.max(0, Math.round(y) + j)), p = (yy * W + xx) * 4;
+      const yv = .299 * d[p] + .587 * d[p + 1] + .114 * d[p + 2];
+      ys.push(yv); bs.push(d[p + 2] - yv); rs.push(d[p] - yv);
+    }
+    const med = a => { a.sort((p, q) => p - q); return a[a.length >> 1]; };
+    return { y: med(ys), cb: med(bs), cr: med(rs) };
+  }
+  function makeMask(img, m, tol) {
+    const W = img.width, H = img.height, d = img.data, n = W * H, out = new Uint8Array(n), t2 = tol * tol;
+    for (let i = 0, p = 0; i < n; i++, p += 4) {
+      const r = d[p], g = d[p + 1], b = d[p + 2], y = .299 * r + .587 * g + .114 * b;
+      const dy = (y - m.y) * .5, db = (b - y) - m.cb, dr = (r - y) - m.cr;
+      out[i] = (dy * dy + db * db + dr * dr) < t2 ? 1 : 0;
+    }
+    return out;
+  }
+
+  /* ---------- connected components (4-connected) ---------- */
+  function components(mask, W, H, minArea) {
+    const lab = new Int32Array(W * H), stack = new Int32Array(W * H), blobs = []; let id = 0;
+    for (let s = 0; s < W * H; s++) {
+      if (!mask[s] || lab[s]) continue;
+      id++; let sp = 0; stack[sp++] = s; lab[s] = id;
+      let area = 0, x0 = W, y0 = H, x1 = 0, y1 = 0, sx = 0, sy = 0;
+      while (sp) {
+        const p = stack[--sp], x = p % W, y = (p / W) | 0;
+        area++; sx += x; sy += y; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+        if (x > 0 && mask[p - 1] && !lab[p - 1]) { lab[p - 1] = id; stack[sp++] = p - 1; }
+        if (x < W - 1 && mask[p + 1] && !lab[p + 1]) { lab[p + 1] = id; stack[sp++] = p + 1; }
+        if (y > 0 && mask[p - W] && !lab[p - W]) { lab[p - W] = id; stack[sp++] = p - W; }
+        if (y < H - 1 && mask[p + W] && !lab[p + W]) { lab[p + W] = id; stack[sp++] = p + W; }
+      }
+      if (area >= minArea) blobs.push({ id, area, x0, y0, x1, y1, cx: sx / area, cy: sy / area });
+    }
+    return { lab, blobs };
+  }
+
+  /* holes inside a blob (pips): background flood from the border, whatever is left enclosed is a hole */
+  function holesOf(lab, W, b) {
+    const bw = b.x1 - b.x0 + 1, bh = b.y1 - b.y0 + 1, w = bw + 2, h = bh + 2, loc = new Uint8Array(w * h);
+    for (let y = 0; y < bh; y++) for (let x = 0; x < bw; x++) loc[(y + 1) * w + x + 1] = lab[(b.y0 + y) * W + b.x0 + x] === b.id ? 1 : 0;
+    const seen = new Uint8Array(w * h), st = [0]; seen[0] = 1;
+    const nb = [-1, 1, -w, w, -w - 1, -w + 1, w - 1, w + 1];
+    const flood = (s, hole) => {
+      const stk = [s]; seen[s] = 1; let a = 0, x0 = w, x1 = 0, y0 = h, y1 = 0, sx = 0, sy = 0;
+      while (stk.length) {
+        const p = stk.pop(), x = p % w, y = (p / w) | 0; a++; sx += x; sy += y; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+        for (let k = 0; k < 8; k++) {
+          const q = p + nb[k], qx = q % w; if (q < 0 || q >= w * h || Math.abs(qx - x) > 1) continue;
+          if (!loc[q] && !seen[q]) { seen[q] = 1; stk.push(q); }
+        }
+      }
+      return hole ? { area: a, w: x1 - x0 + 1, h: y1 - y0 + 1, cx: sx / a + b.x0 - 1, cy: sy / a + b.y0 - 1 } : null;
+    };
+    flood(0, false);
+    const holes = []; let holeArea = 0;
+    for (let s = 0; s < w * h; s++) if (!loc[s] && !seen[s]) { const hh = flood(s, true); holes.push(hh); holeArea += hh.area; }
+    return { holes, filled: b.area + holeArea };
+  }
+
+  /* ---------- find dice-like blobs in an image ---------- */
+  // cal = {models:[m1,(m2)], tol, refFrac}  refFrac = filled die area / frameWidth²
+  function findBlobs(img, cal, o) {
+    o = o || {}; const W = img.width, H = img.height, fw = o.frameW || W, refA = cal.refFrac * fw * fw, side = Math.sqrt(refA), out = [];
+    cal.models.forEach((m, mi) => {
+      const mask = makeMask(img, m, cal.tol || TOL_DEFAULT), cc = components(mask, W, H, Math.max(4, refA * .2));
+      for (const b of cc.blobs) {
+        const bw = b.x1 - b.x0 + 1, bh = b.y1 - b.y0 + 1, lo = Math.min(bw, bh), hi = Math.max(bw, bh);
+        if (hi > side * 3.4 || lo < side * .5 || b.area < refA * .3 || b.area > refA * 2.9 || b.area / (bw * bh) < .33) continue;
+        const blob = { model: mi, cx: b.cx, cy: b.cy, x0: b.x0, y0: b.y0, x1: b.x1, y1: b.y1, area: b.area, w: bw, h: bh, big: b.area > refA * 1.75 };
+        if (o.withPips) {
+          const hh = holesOf(cc.lab, W, b), fa = hh.filled; blob.filled = fa;
+          const pips = hh.holes.filter(p => { const f = p.area / fa; return f > .004 && f < .085 && p.w / p.h < 2.2 && p.h / p.w < 2.2 && p.area / (p.w * p.h) > .4; });
+          blob.pips = pips.length; blob.pipPts = pips;
+          const lone = fa > refA * .55 && fa < refA * 1.7;
+          blob.ok = lone && pips.length >= 1 && pips.length <= 6;
+        }
+        out.push(blob);
+      }
+    });
+    return out;
+  }
+
+  /* Build a calibration from taps on dice in one frame. taps = [{x,y}] in image px (1 = same-colour dice, 2 = two colours) */
+  function calibrate(img, taps, tol) {
+    tol = tol || TOL_DEFAULT; const models = taps.map(t => sampleModel(img, t.x, t.y, 4)), W = img.width, H = img.height;
+    // measure the die the first tap landed on (filled area incl. pips)
+    const m = models[0], mask = makeMask(img, m, tol), cc = components(mask, W, H, 20);
+    let pick = null, best = 1e9;
+    for (const b of cc.blobs) { if (b.x0 - 2 <= taps[0].x && taps[0].x <= b.x1 + 2 && b.y0 - 2 <= taps[0].y && taps[0].y <= b.y1 + 2) { const dd = Math.hypot(b.cx - taps[0].x, b.cy - taps[0].y); if (dd < best) { best = dd; pick = b; } } }
+    if (!pick) return { error: 'nodie' };
+    if (pick.area > W * H * .04) return { error: 'toobig' };   // tapped the table (or a dot), not the die body
+    const hh = holesOf(cc.lab, W, pick);
+    return { models, tol, refFrac: hh.filled / (W * W), pips: hh.holes.length, sidePx: Math.sqrt(hh.filled), frameW: W };
+  }
+
+  /* ---------- rest detection ---------- */
+  function createScanner(cal, o) {
+    o = o || {}; const K = o.K || 4, interval = o.interval || .1, refSide = Math.sqrt(cal.refFrac) * (o.W || cal.frameW || 640), twoModels = cal.models.length > 1;
+    let prev = null, stable = 0, restStart = 0, reads = [], emitted = false, last = null; const out = [];
+    function order(blobs) { return twoModels ? blobs.slice().sort((a, b) => a.model - b.model || a.cx - b.cx) : blobs.slice().sort((a, b) => a.cx - b.cx); }
+    function emit(conf) {
+      if (emitted || !reads.length) return; emitted = true;
+      const a = reads[0], b = reads[1];
+      const vals = [0, 1].map(i => { const x = a.v[i], y = b ? b.v[i] : x; return x != null && x === y ? [x, 1] : (x != null ? [x, b ? .3 : .5] : (y != null ? [y, .3] : [null, 0])); });
+      const c = { vt: restStart, l: vals[0][0], r: vals[1][0], conf: Math.min(vals[0][1], vals[1][1]), snap: a.snap, pos: a.pos };
+      if (a.big) { c.l = null; c.r = null; c.conf = 0; c.note = 'dice touching'; }
+      // skip an identical resting state we already reported (hand nudged the dice, no new throw)
+      if (last && c.pos && last.pos && c.pos.length === last.pos.length && c.pos.every((p, i) => Math.hypot(p.x - last.pos[i].x, p.y - last.pos[i].y) < refSide * 1.0) && c.l === last.l && c.r === last.r) return;
+      last = c; out.push(c); if (o.onCandidate) o.onCandidate(c);
+    }
+    function reset() { if (stable >= K && !emitted) emit(); prev = null; stable = 0; emitted = false; reads = []; }
+    return {
+      out,
+      feed(t, blobs, read) {
+        const ok = blobs.length === 2 || (blobs.length === 1 && blobs[0].big);
+        if (!ok) { reset(); return; }
+        const sig = order(blobs).map(b => ({ x: b.cx, y: b.cy }));
+        const same = prev && prev.length === sig.length && sig.every((p, i) => Math.hypot(p.x - prev[i].x, p.y - prev[i].y) <= refSide * (o.stabTol || .12));
+        if (!same) { if (stable >= K && !emitted) emit(); stable = 1; restStart = t; reads = []; emitted = false; prev = sig; return; }
+        prev = sig; stable++;
+        if ((stable === K || stable === K + 2) && !emitted) {
+          const r = read(order(blobs)); r.pos = sig; r.big = blobs.length === 1; reads.push(r);
+          if (stable === K + 2) emit();
+        }
+      },
+      finish() { reset(); return out; }
+    };
+  }
+
+  /* ---------- DOM driver: scan a <video> ---------- */
+  async function scanVideo(video, cal, o) {
+    o = o || {}; const interval = o.interval || .1, Wc = o.coarseW || 640, vw = video.videoWidth, vh = video.videoHeight, Hc = Math.round(Wc * vh / vw);
+    const Wh = Math.min(vw, o.hiW || 1280), Hh = Math.round(Wh * vh / vw), k = Wh / Wc;
+    const cc = document.createElement('canvas'); cc.width = Wc; cc.height = Hc; const cx = cc.getContext('2d', { willReadFrequently: true });
+    const hc = document.createElement('canvas'); hc.width = Wh; hc.height = Hh; const hx = hc.getContext('2d', { willReadFrequently: true });
+    const calC = cal;   // refFrac is scale free
+    function read(blobs) {
+      hx.drawImage(video, 0, 0, Wh, Hh);
+      const v = blobs.map(b => {
+        const pad = 6, x0 = Math.max(0, Math.floor(b.x0 * k) - pad), y0 = Math.max(0, Math.floor(b.y0 * k) - pad), x1 = Math.min(Wh, Math.ceil((b.x1 + 1) * k) + pad), y1 = Math.min(Hh, Math.ceil((b.y1 + 1) * k) + pad);
+        if (x1 - x0 < 6 || y1 - y0 < 6) return null;
+        const img = hx.getImageData(x0, y0, x1 - x0, y1 - y0), sub = { models: [calC.models[b.model]], tol: calC.tol, refFrac: calC.refFrac };
+        const found = findBlobs(img, sub, { withPips: true, frameW: Wh }), mx = (b.cx * k - x0), my = (b.cy * k - y0);
+        let best = null, bd = 1e9; for (const f of found) { const dd = Math.hypot(f.cx - mx, f.cy - my); if (dd < bd) { bd = dd; best = f; } }
+        return best && best.ok ? best.pips : null;
+      });
+      // thumbnail: both dice + margin
+      let snap = null;
+      try {
+        const bx0 = Math.min(...blobs.map(b => b.x0)) * k, by0 = Math.min(...blobs.map(b => b.y0)) * k, bx1 = Math.max(...blobs.map(b => b.x1)) * k, by1 = Math.max(...blobs.map(b => b.y1)) * k, m = Math.max(bx1 - bx0, by1 - by0) * .35 + 12;
+        const sx = Math.max(0, bx0 - m), sy = Math.max(0, by0 - m), sw = Math.min(Wh - sx, bx1 - bx0 + 2 * m), sh = Math.min(Hh - sy, by1 - by0 + 2 * m), tw = 220, th = Math.max(40, Math.round(tw * sh / sw));
+        const tc = document.createElement('canvas'); tc.width = tw; tc.height = th; tc.getContext('2d').drawImage(hc, sx, sy, sw, sh, 0, 0, tw, th); snap = tc.toDataURL('image/jpeg', .6);
+      } catch (e) { /* ignore */ }
+      return { v: [v[0] == null ? null : v[0], v[1] == null ? null : v[1]], snap };
+    }
+    const sc = createScanner(cal, { interval, K: o.K, W: Wc, onCandidate: o.onCandidate });
+    function proc(t) {
+      cx.drawImage(video, 0, 0, Wc, Hc);
+      const blobs = findBlobs(cx.getImageData(0, 0, Wc, Hc), cal, { frameW: Wc });
+      sc.feed(t, blobs, read);
+      if (o.onProgress) o.onProgress(t / video.duration);
+    }
+    const prevRate = video.playbackRate, prevMuted = video.muted, dur = video.duration;
+    video.muted = true; video.pause();
+    const seekTo = t => new Promise(res => { const f = () => { video.removeEventListener('seeked', f); res(); }; video.addEventListener('seeked', f); video.currentTime = t; });
+    try {
+      if (o.mode !== 'seek' && 'requestVideoFrameCallback' in video) {
+        await seekTo(0); video.playbackRate = o.rate || 2;
+        await new Promise((res, rej) => {
+          let lastT = -1, done = false, wd;
+          const fin = () => { if (done) return; done = true; clearTimeout(wd); video.removeEventListener('ended', fin); res(); };
+          video.addEventListener('ended', fin);
+          const step = () => {
+            if (done) return;
+            if (o.signal && o.signal.cancelled) { fin(); return; }
+            video.requestVideoFrameCallback((now, meta) => {
+              clearTimeout(wd); wd = setTimeout(() => fin(), 4000);
+              const t = meta.mediaTime;
+              if (t - lastT >= interval - 1e-3) { lastT = t; try { proc(t); } catch (e) { done = true; rej(e); return; } }
+              step();
+            });
+          };
+          wd = setTimeout(() => fin(), 4000);
+          video.play().then(step).catch(rej);
+        });
+      } else {
+        for (let t = 0; t < dur; t += interval) { if (o.signal && o.signal.cancelled) break; await seekTo(t); proc(t); }
+      }
+    } finally { video.pause(); video.playbackRate = prevRate; video.muted = prevMuted; }
+    return sc.finish();
+  }
+
+  return { sampleModel, makeMask, components, holesOf, findBlobs, calibrate, createScanner, scanVideo, TOL_DEFAULT };
+});
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const DT = window.DT;
+  const $ = (s, r) => (r || document).querySelector(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  const pct = (x, d) => (x * 100).toFixed(d == null ? 1 : d) + '%';
+  const f1 = (x, d) => (x == null || isNaN(x) ? '—' : x.toFixed(d == null ? 1 : d));
+  const fmtDur = s => { s = Math.max(0, Math.floor(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(x).padStart(2, '0'); };
+  const fmtDate = t => new Date(t).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  const clone = o => JSON.parse(JSON.stringify(o));
+  const SAMPLE = { name: 'Workbook sample set', left: { top: 2, front: 1, left: 3 }, right: { top: 2, front: 3, left: 6 } };
+
+  /* ================= storage (IndexedDB, with in-memory fallback) ================= */
+  const Store = {
+    idb: null, ok: false, mem: { sets: new Map(), sessions: new Map(), chunks: new Map(), meta: new Map() },
+    key(store, v) { return store === 'chunks' ? v.sid + '|' + v.idx : store === 'meta' ? v.key : v.id; },
+    async open() {
+      try {
+        if (!window.indexedDB) throw new Error('no indexedDB');
+        this.idb = await new Promise((res, rej) => {
+          const q = indexedDB.open('dicetracker', 1);
+          q.onupgradeneeded = () => { const d = q.result; d.createObjectStore('sets', { keyPath: 'id' }); d.createObjectStore('sessions', { keyPath: 'id' }); d.createObjectStore('chunks', { keyPath: ['sid', 'idx'] }); d.createObjectStore('meta', { keyPath: 'key' }); };
+          q.onsuccess = () => res(q.result); q.onerror = () => rej(q.error); q.onblocked = () => rej(new Error('blocked'));
+        });
+        this.ok = true;
+      } catch (e) { this.ok = false; }
+    },
+    tx(store, mode, fn) {
+      return new Promise((res, rej) => {
+        const t = this.idb.transaction(store, mode); const r = fn(t.objectStore(store));
+        t.oncomplete = () => res(r && r.result); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error);
+      });
+    },
+    async put(store, v) { if (!this.ok) { this.mem[store].set(this.key(store, v), v); return; } return this.tx(store, 'readwrite', os => os.put(v)); },
+    async all(store) { if (!this.ok) return [...this.mem[store].values()]; return this.tx(store, 'readonly', os => os.getAll()); },
+    async del(store, k) { if (!this.ok) { this.mem[store].delete(k); return; } return this.tx(store, 'readwrite', os => os.delete(k)); },
+    async clipChunks(clipKey) {
+      if (!this.ok) return [...this.mem.chunks.values()].filter(c => c.sid === clipKey).sort((a, b) => a.idx - b.idx);
+      return this.tx('chunks', 'readonly', os => os.getAll(IDBKeyRange.bound([clipKey, 0], [clipKey, 1e12])));
+    },
+    async countChunks(clipKey) {
+      if (!this.ok) return [...this.mem.chunks.values()].filter(c => c.sid === clipKey).length;
+      return this.tx('chunks', 'readonly', os => os.count(IDBKeyRange.bound([clipKey, 0], [clipKey, 1e12])));
+    },
+    async delClip(clipKey) {
+      if (!this.ok) { [...this.mem.chunks.keys()].filter(k => k.startsWith(clipKey + '|')).forEach(k => this.mem.chunks.delete(k)); return; }
+      return this.tx('chunks', 'readwrite', os => os.delete(IDBKeyRange.bound([clipKey, 0], [clipKey, 1e12])));
+    },
+    async clear() {
+      if (!this.ok) { Object.values(this.mem).forEach(m => m.clear()); return; }
+      for (const s of ['sets', 'sessions', 'chunks', 'meta']) await this.tx(s, 'readwrite', os => os.clear());
+    },
+  };
+
+  /* ================= state ================= */
+  const DEFAULTS = { crapsEndsRun: true, audio: false, quality: 'medium', wake: true, pauseOnEnter: true, mode: 'review' };
+  const st = {
+    tab: 'track', sets: [], sessions: [], settings: { ...DEFAULTS }, activeId: null,
+    selL: null, view: null, statsScope: 'all', startSetId: null, hideCam: false, camError: null,
+    edit: null, askRes: null, player: null,
+  };
+  const eo = () => ({ crapsEndsRun: st.settings.crapsEndsRun });
+  const active = () => st.sessions.find(s => s.id === st.activeId && !s.endedAt) || null;
+  const saveSession = s => Store.put('sessions', s);
+  const saveMeta = (key, value) => Store.put('meta', { key, value });
+
+  /* ================= camera / recording ================= */
+  const park = document.createElement('div');
+  park.style.cssText = 'position:fixed;left:-9999px;top:0;width:2px;height:2px;overflow:hidden';
+  const camVideo = document.createElement('video');
+  camVideo.muted = true; camVideo.autoplay = true; camVideo.playsInline = true; camVideo.setAttribute('playsinline', ''); camVideo.setAttribute('muted', '');
+  park.appendChild(camVideo); document.body.appendChild(park);
+  // video you filmed earlier (Camera app) that you log rolls from; lives outside re-renders so playback isn't interrupted
+  const revVideo = document.createElement('video');
+  revVideo.controls = true; revVideo.playsInline = true; revVideo.setAttribute('playsinline', ''); revVideo.preload = 'metadata';
+  park.appendChild(revVideo);
+  const LEAD = 3; // seconds shown before a logged roll when you jump to it
+  let rec = null;
+
+  function pickMime() {
+    const c = ['video/mp4;codecs=avc1.42E01E', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'];
+    if (!window.MediaRecorder || !MediaRecorder.isTypeSupported) return '';
+    return c.find(t => MediaRecorder.isTypeSupported(t)) || '';
+  }
+  async function startRecording(s) {
+    if (rec) return;
+    if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || !window.MediaRecorder) throw new Error('This browser/view cannot record video.');
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 30 } },
+      audio: !!st.settings.audio,
+    });
+    camVideo.srcObject = stream;
+    const mime = pickMime(); const br = { low: 1.0e6, medium: 2.2e6, high: 4.5e6 }[st.settings.quality] || 2.2e6;
+    const mr = new MediaRecorder(stream, Object.assign({ videoBitsPerSecond: br }, mime ? { mimeType: mime } : {}));
+    const clipIdx = (s.clips || []).length;
+    rec = { sid: s.id, clipIdx, clipKey: s.id + '#' + clipIdx, stream, mr, idx: 0, size: 0, writes: Promise.resolve(), vStart: Date.now(), mime: mr.mimeType || mime || 'video/mp4' };
+    const r = rec;
+    mr.ondataavailable = e => { if (e.data && e.data.size) { const i = r.idx++; r.size += e.data.size; r.writes = r.writes.then(() => Store.put('chunks', { sid: r.clipKey, idx: i, blob: e.data })).catch(() => {}); } };
+    s.clips = s.clips || [];
+    s.clips.push({ key: r.clipKey, mime: r.mime, startedAt: r.vStart, chunks: 0, size: 0, dur: 0, open: true });
+    await saveSession(s);
+    mr.start(2000);
+    st.camError = null;
+  }
+  function stopRecording() {
+    return new Promise(res => {
+      const r = rec; if (!r) return res();
+      const finish = async () => {
+        r.stream.getTracks().forEach(t => t.stop()); camVideo.srcObject = null; rec = null;
+        await r.writes;
+        const s = st.sessions.find(x => x.id === r.sid);
+        if (s) { const c = s.clips[r.clipIdx]; c.chunks = r.idx; c.size = r.size; c.dur = (Date.now() - r.vStart) / 1000; c.open = false; await saveSession(s); }
+        res();
+      };
+      if (r.mr.state === 'inactive') return finish();
+      r.mr.onstop = finish;
+      try { r.mr.requestData(); } catch (e) { /* ignore */ }
+      r.mr.stop();
+    });
+  }
+  async function recoverClips() { // after an app reload, close clips that were still open
+    for (const s of st.sessions) {
+      for (const c of (s.clips || [])) {
+        if (c.open) { c.chunks = await Store.countChunks(c.key); c.open = false; c.dur = c.dur || 0; c.recovered = true; await saveSession(s); }
+      }
+    }
+  }
+  let wl = null;
+  async function wake(on) { try { if (on && 'wakeLock' in navigator) wl = await navigator.wakeLock.request('screen'); else if (wl) { await wl.release(); wl = null; } } catch (e) { /* ignore */ } }
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && active() && st.settings.wake) wake(true); });
+  setInterval(() => { const el = $('#rectime'); if (el && rec) el.textContent = fmtDur((Date.now() - rec.vStart) / 1000); }, 500);
+
+  async function clipBlob(s, ci) {
+    const c = s.clips[ci]; const chunks = await Store.clipChunks(c.key);
+    return new Blob(chunks.map(x => x.blob), { type: c.mime || 'video/mp4' });
+  }
+  async function saveFile(name, blob) {
+    try {
+      const f = new File([blob], name, { type: blob.type });
+      if (navigator.canShare && navigator.canShare({ files: [f] })) { await navigator.share({ files: [f], title: name }); return; }
+    } catch (e) { if (e && e.name === 'AbortError') return; }
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+  }
+
+  /* ================= UI helpers ================= */
+  function toast(msg) {
+    const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; $('#toastbox').appendChild(t);
+    setTimeout(() => t.remove(), 1900);
+  }
+  function modal(html) { $('#modalbox').innerHTML = '<div class="modal"><div class="bd" data-act="mClose"></div><div class="sheet">' + html + '</div></div>'; }
+  function closeModal() { $('#modalbox').innerHTML = ''; }
+  function ask(msg, ok, danger) {
+    return new Promise(res => { st.askRes = res; modal('<h3>' + esc(msg) + '</h3><div class="row" style="margin-top:12px"><button class="sp ghost" data-act="mClose">Cancel</button><button class="sp ' + (danger ? 'dng' : 'pri') + '" data-act="mOk">' + esc(ok || 'OK') + '</button></div>'); });
+  }
+  const setIndex = () => {
+    const m = new Map();
+    st.sets.forEach(s => m.set(s.id, { id: s.id, name: s.name, set: s, sessions: [] }));
+    st.sessions.forEach(x => { if (!m.has(x.setId)) m.set(x.setId, { id: x.setId, name: x.set.name + ' (deleted)', set: x.set, sessions: [] }); m.get(x.setId).sessions.push(x); });
+    return [...m.values()];
+  };
+  const tagText = { natural: 'NATURAL', craps: 'CRAPS', point: 'POINT SET', made: 'POINT MADE', sevenout: 'SEVEN-OUT', '': '' };
+  const chipCls = (x) => x.t === 7 ? 'seven' : x.tag === 'made' ? 'made' : x.tag === 'point' ? 'point' : x.tag === 'craps' ? 'craps' : x.tag === 'natural' ? 'nat' : '';
+
+  /* ================= stats rendering ================= */
+  function barCell(p, e, max) {
+    return '<div class="bar"><i style="width:' + Math.min(100, p / max * 100).toFixed(1) + '%"></i><u style="left:' + Math.min(99, e / max * 100).toFixed(1) + '%"></u></div>';
+  }
+  function statsHTML(S) {
+    if (!S.n) return '<div class="empty">No rolls yet.</div>';
+    const small = S.n < 200;
+    let h = '';
+    // headline
+    h += '<div class="grid2">' +
+      '<div class="tile"><div class="k">Rolls</div><div class="v">' + S.n + '</div><div class="s">' + S.sevens + ' sevens</div></div>' +
+      '<div class="tile"><div class="k">SRR (rolls ÷ sevens)</div><div class="v">' + f1(S.srr, 2) + '</div><div class="s">random = 6.00' + (S.srrCI ? ' · 95% CI ' + f1(S.srrCI[0]) + '–' + f1(S.srrCI[1]) : '') + '</div></div>' +
+      '<div class="tile"><div class="k">Avg rolls before a 7</div><div class="v">' + f1(S.rbs.mean) + '</div><div class="s">random = 5.0 · median ' + f1(S.rbs.median, 1) + ' · max ' + (S.rbs.max == null ? '—' : S.rbs.max) + '</div></div>' +
+      '<div class="tile"><div class="k">Hands (to seven-out)</div><div class="v">' + S.hands.count + '</div><div class="s">avg ' + f1(S.hands.mean) + ' before 7-out · best ' + (S.hands.best == null ? '—' : S.hands.best) + ' <span class="mut">(random 7.5)</span></div></div>' +
+      '</div>';
+    if (small) h += '<div class="warnbox">Only ' + S.n + ' rolls so far. Short samples swing a lot — a 95% range on SRR this size is wide. Treat everything below as directional until you have several hundred rolls (thousands for firm conclusions).</div>';
+    h += '<details open><summary>Runs & hands</summary><div>' +
+      '<div class="grid3">' +
+      '<div class="tile"><div class="k">Run avg</div><div class="v">' + f1(S.runs.mean) + '</div><div class="s">' + S.runs.count + ' runs</div></div>' +
+      '<div class="tile"><div class="k">Best run</div><div class="v">' + (S.runs.best == null ? '—' : S.runs.best) + '</div><div class="s">last ' + (S.runs.last == null ? '—' : S.runs.last) + '</div></div>' +
+      '<div class="tile"><div class="k">Pts made</div><div class="v">' + S.hands.pointsMade + '/' + S.hands.pointsEstablished + '</div><div class="s">random ' + pct(S.expPointMade, 0) + '</div></div>' +
+      '</div>' +
+      '<p class="mut small" style="margin:8px 0 4px">A <b>run</b> = rolls before a 7 (it also ends on a come-out craps while that option is on in More). Come-out results: ' +
+      S.cycle.natural + ' naturals · ' + S.cycle.craps + ' craps · ' + S.cycle.established + ' points set · ' + S.cycle.made + ' made · ' + S.cycle.sevenOut + ' seven-outs.</p>' +
+      '</div></details>';
+
+    // distribution
+    const maxp = Math.max(...S.dist.map(d => Math.max(d.pct, d.expPct)));
+    h += '<details open><summary>Number distribution</summary><div><table><tr><th>#</th><th>Hits</th><th>%</th><th>Exp %</th><th>±2σ range</th><th>Δσ</th></tr>' +
+      S.dist.map(d => '<tr class="' + (d.out ? 'hl' : '') + '"><td><b>' + d.num + '</b></td><td>' + d.count + '</td><td>' + pct(d.pct) + '</td><td>' + pct(d.expPct) + '</td><td>' + f1(d.lo, 0) + '–' + f1(d.hi, 0) + '</td><td class="' + (d.z > 2 ? 'up' : d.z < -2 ? 'dn' : '') + '">' + (d.z > 0 ? '+' : '') + f1(d.z, 1) + '</td></tr>' +
+        '<tr><td colspan="6" style="padding:0 0 4px;border:0">' + barCell(d.pct, d.expPct, maxp) + '</td></tr>').join('') +
+      '</table><p class="mut tiny">Bars: green = actual, yellow tick = expected for fair dice. Highlighted rows are outside ±2σ (about 1 in 20 numbers will do that by chance).</p></div></details>';
+
+    // axis
+    const A = S.axis, pr = (k, lab, ind) => '<tr><td>' + (ind ? '&nbsp;&nbsp;↳ ' : '') + lab + '</td><td>' + A[k].count + '</td><td>' + pct(A[k].pct) + '</td><td>' + pct(A[k].expPct) + '</td></tr>';
+    h += '<details open><summary>On-axis landings</summary><div><table><tr><th>Landing</th><th>Count</th><th>%</th><th>Random %</th></tr>' +
+      pr('both', 'Both dice on axis') + pr('primary', 'Primary (same face position)', 1) + pr('single', 'Single pitch', 1) + pr('dbl', 'Double pitch', 1) +
+      pr('oneOff', 'One die off axis') + pr('loff', 'Left die only', 1) + pr('roff', 'Right die only', 1) + pr('bothOff', 'Both dice off axis') + '</table>' +
+      (A.primaryOfOn != null ? '<p class="mut small">Of your on-axis landings: ' + pct(A.primaryOfOn, 0) + ' primary / ' + pct(A.singleOfOn, 0) + ' single / ' + pct(A.dblOfOn, 0) + ' double (random on-axis = 25 / 50 / 25).</p>' : '') +
+      '<p class="mut tiny">On-axis = a die lands on Top, Front, Bottom or Back (the faces that rotate into each other when the die pitches end-over-end). Left/Right faces are off-axis.</p></div></details>';
+
+    // groups
+    h += '<details><summary>Bet groups & GSR</summary><div><table><tr><th>Group</th><th>Hits</th><th>%</th><th>Exp %</th><th>GSR</th><th>Exp GSR</th></tr>' +
+      S.groups.map(g => '<tr><td>' + g.name + '</td><td>' + g.count + '</td><td>' + pct(g.pct) + '</td><td>' + pct(g.expPct) + '</td><td class="' + (g.gsr != null && g.gsr > g.expGsr ? 'ok' : '') + '">' + f1(g.gsr, 2) + '</td><td>' + f1(g.expGsr, 2) + '</td></tr>').join('') +
+      '</table><p class="mut tiny">GSR = group hits per seven. Across (box numbers) GSR is the Bone Tracker “BSR”; fair dice give 4.00.</p></div></details>';
+
+    h += '<details><summary>Hardways</summary><div><table><tr><th>Bet</th><th>Hits</th><th>%</th><th>Exp %</th></tr>' +
+      S.hard.map(x => '<tr><td>' + x.name + '</td><td>' + x.count + '</td><td>' + pct(x.pct) + '</td><td>' + pct(x.expPct) + '</td></tr>').join('') + '</table></div></details>';
+
+    // RBS
+    const R = S.rbs, hmax = Math.max(1, ...R.hist, ...R.hist.map((_, k) => R.total * (k < 20 ? (1 / 6) * Math.pow(5 / 6, k) : Math.pow(5 / 6, 20))));
+    h += '<details><summary>Rolls between sevens</summary><div>' +
+      '<div style="display:flex;gap:2px;align-items:flex-end;height:90px;margin:4px 0">' +
+      R.hist.map((c, k) => { const e = R.total * (k < 20 ? (1 / 6) * Math.pow(5 / 6, k) : Math.pow(5 / 6, 20)); return '<div style="flex:1;position:relative;height:100%"><div style="position:absolute;bottom:0;left:0;right:0;height:' + (c / hmax * 100) + '%;background:var(--acc2);border-radius:3px 3px 0 0"></div><div style="position:absolute;left:0;right:0;bottom:' + (e / hmax * 100) + '%;height:2px;background:var(--acc)"></div></div>'; }).join('') + '</div>' +
+      '<div class="row mut tiny"><span>0</span><span class="sp" style="text-align:center">rolls before the 7</span><span>20+</span></div>' +
+      '<table style="margin-top:6px"><tr><th>Group</th><th>Count</th><th>Cum %</th><th>Random cum %</th></tr>' +
+      R.cum.map((c, i) => '<tr><td>' + c.label + '</td><td>' + c.count + '</td><td>' + pct(c.pct) + '</td><td>' + pct(c.rand) + '</td></tr>').join('') + '</table>' +
+      '<h3 style="margin-top:12px">Box & crap numbers between sevens</h3><table><tr><th>#</th><th>Avg</th><th>Most</th></tr>' +
+      [...DT.BOX, ...DT.CRAP_NUMS].map(t => '<tr><td>' + t + '</td><td>' + f1(R.between[t].avg, 2) + '</td><td>' + (R.between[t].most == null ? '—' : R.between[t].most) + '</td></tr>').join('') + '</table>' +
+      '<p class="mut tiny">Green bars = your counts, yellow ticks = fair-dice expectation. Counted from the start of a session (or a manual new hand) to each 7.</p></div></details>';
+
+    // faces / POI / chi
+    const ft = (rows) => '<table><tr><th>Face</th><th>Count</th><th>%</th></tr>' + rows.map(f => '<tr><td>' + f.pos + '</td><td>' + f.count + '</td><td class="' + (f.pct > 1 / 6 + 0.02 ? 'up' : f.pct < 1 / 6 - 0.02 ? 'dn' : '') + '">' + pct(f.pct) + '</td></tr>').join('') + '</table>';
+    const e36 = S.n / 36;
+    h += '<details><summary>Face appearance & landing pairs</summary><div>' +
+      '<div class="grid2"><div><h3>Left die</h3>' + ft(S.faces.left) + '</div><div><h3>Right die</h3>' + ft(S.faces.right) + '</div></div><p class="mut tiny">Fair dice: each face 16.7%.</p>' +
+      '<h3 style="margin-top:12px">Most / least frequent landing pairs (left-right)</h3><table><tr><th>Pair</th><th>Count</th><th>Expected</th></tr>' +
+      S.poi.slice(0, 5).map(x => '<tr><td>' + x.poi + '</td><td>' + x.count + '</td><td>' + f1(e36) + '</td></tr>').join('') + '<tr><td colspan="3" class="mut" style="text-align:center">…</td></tr>' +
+      S.poi.slice(-5).map(x => '<tr><td>' + x.poi + '</td><td>' + x.count + '</td><td>' + f1(e36) + '</td></tr>').join('') + '</table>' +
+      '<h3 style="margin-top:12px">Dice-value grid (left rows × right columns)</h3><div class="heat"><div class="h"></div>' + [1, 2, 3, 4, 5, 6].map(v => '<div class="h">' + v + '</div>').join('') +
+      S.grid.map((row, i) => '<div class="h">' + (i + 1) + '</div>' + row.map(c => { const mx = Math.max(1, ...S.grid.flat()); return '<div style="background:rgba(61,220,151,' + (0.08 + 0.7 * c / mx).toFixed(2) + ')">' + c + '</div>'; }).join('')).join('') + '</div>' +
+      '<h3 style="margin-top:12px">Chi-squared on the 36 landing pairs</h3>' +
+      (S.chi.ok ? '<p>χ² = ' + f1(S.chi.x2, 1) + ' (df 35), p = ' + S.chi.p.toFixed(3) + ' — <b>' + (S.chi.p < 0.05 ? 'unlikely under random landings' : S.chi.p < 0.15 ? 'a slight tilt, not conclusive' : 'consistent with random landings') + '</b>.</p>' : '<p class="mut">Needs at least ' + S.chi.need + ' rolls (so each of the 36 cells expects ≥5). You have ' + S.n + '.</p>') +
+      '<p class="mut tiny">A single p-value from one data set is weak evidence — checking many stats on a small sample will flag something by chance. Re-test on a fresh set of rolls before reading anything into it.</p></div></details>';
+    return h;
+  }
+
+  /* ================= screens ================= */
+  function startHTML() {
+    if (!st.sets.length) {
+      return '<h1>Track</h1><div class="card"><h3>First, add your dice set</h3><p class="mut">A set is the face pattern of your two dice as you hold them to throw (Top / Facing you / Left on each die). Everything — on-axis, primary and pitch stats — is measured against it.</p>' +
+        '<div class="row wrap"><button class="pri" data-act="newSet">Add my dice set</button><button data-act="addSample">Use the workbook sample set</button></div></div>';
+    }
+    if (!st.startSetId || !st.sets.find(x => x.id === st.startSetId)) st.startSetId = st.sets[0].id;
+    const canLive = !!(window.isSecureContext && navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+    const mode = st.settings.mode === 'live' && canLive ? 'live' : 'review';
+    return '<h1>Track</h1><div class="card"><h3>New session</h3>' +
+      '<label>Dice set</label><select id="startSet" data-chg="pickStartSet">' + st.sets.map(x => '<option value="' + x.id + '"' + (x.id === st.startSetId ? ' selected' : '') + '>' + esc(x.name) + '</option>').join('') + '</select>' +
+      '<label>Notes (venue, table, who’s throwing)</label><input id="startNotes" placeholder="e.g. Home practice · felt table">' +
+      '<label>How do you capture the rolls?</label><div class="row"><button class="sp' + (mode === 'review' ? ' pri' : '') + '" data-act="setMode" data-m="review">Film first, log after</button><button class="sp' + (mode === 'live' ? ' pri' : '') + '" data-act="setMode" data-m="live"' + (canLive ? '' : ' disabled') + '>Live camera</button></div>' +
+      '<p class="mut small" style="margin:8px 0 0">' + (mode === 'review' ? 'Film the throws with the iPhone Camera app (or from here). Then pick the video and tap each roll’s dice while it plays — every roll is stamped with the video time, so you can jump back to any throw.' : 'Records through this app while you tap each roll live.') + (canLive ? '' : ' <span class="tiny">(Live camera needs this app opened from a secure web address.)</span>') + '</p>' +
+      '<button class="go" style="width:100%;margin-top:12px;min-height:52px;font-size:17px" data-act="startSession">Start session</button>' +
+      '<p class="mut tiny" style="margin-top:10px">Many casinos don’t allow filming at tables — check the house rules.</p></div>' +
+      '<div class="card"><h3>Your dice sets</h3>' + st.sets.map(x => '<div class="row" style="padding:4px 0"><span class="sp">' + esc(x.name) + '</span><span class="mut small">' + setFacesText(x) + '</span></div>').join('') + '</div>';
+  }
+  const setFacesText = s => 'L ' + DT.dieFaces(s.left).slice(0, 4).join('·') + ' / R ' + DT.dieFaces(s.right).slice(0, 4).join('·');
+
+  function padHTML(set, which, sel) {
+    const faces = DT.dieFaces(set[which]);
+    return '<div class="pad">' + [1, 2, 3, 4, 5, 6].map(v => {
+      const i = faces.indexOf(v), on = i < 4;
+      return '<button class="' + (on ? 'on-ax' : 'off-ax') + (sel === v ? ' sel' : '') + '" data-act="' + (which === 'left' ? 'pickL' : 'pickR') + '" data-v="' + v + '">' + v + '<small>' + DT.POS[i] + '</small></button>';
+    }).join('') + '</div>';
+  }
+
+  function liveHTML(s) {
+    const a = DT.analyze(s.rolls, eo()), S = DT.computeStats([s], eo());
+    const li = s.rolls.length ? lastEntered(s) : 0, L = a.live, last = a.ann[li];
+    const recOn = !!rec && rec.sid === s.id;
+    let h = '<div class="row"><div class="sp"><div style="font-weight:700">' + esc(s.set.name) + '</div><div class="mut small">' + esc(s.notes || fmtDate(s.startedAt)) + '</div></div>' +
+      '<button class="sm dng" data-act="endSession">End</button></div>';
+    // camera / review video
+    if (s.mode === 'review') { h += reviewCardHTML(s); if (st.scan) h += scanHTML(s); }
+    else if (recOn) {
+      h += '<div class="card" style="padding:8px"><div class="row" style="margin-bottom:6px"><span class="pill bad">● REC <span id="rectime">' + fmtDur((Date.now() - rec.vStart) / 1000) + '</span></span><span class="sp"></span>' +
+        '<button class="sm ghost" data-act="toggleCam">' + (st.hideCam ? 'Show preview' : 'Hide preview') + '</button><button class="sm" data-act="stopVideo">Stop video</button></div>' +
+        '<div class="cam' + (st.hideCam ? ' hide' : '') + '" id="camslot"></div></div>';
+    } else {
+      h += '<div class="card row wrap" style="padding:8px 12px"><span class="mut small sp">' + (st.camError ? 'Camera: ' + esc(st.camError) : 'Video is off for this session.') + '</span><button class="sm" data-act="startVideo">● Start video</button></div>';
+    }
+    // status
+    const phase = L.phase === 'point' ? '<span class="pill point">POINT ' + L.point + '</span>' : '<span class="pill come">COME-OUT</span>';
+    h += '<div class="card"><div class="row"><div>' + phase + '<div class="mut small" style="margin-top:6px">Hand #' + L.hand.idx + ' · ' + L.hand.rolls + ' roll' + (L.hand.rolls === 1 ? '' : 's') + ' · points made ' + L.hand.made + '</div></div>' +
+      '<div class="sp" style="text-align:right"><div class="bigrun">' + L.run.len + '</div><div class="mut small">rolls before the 7</div></div></div>' +
+      '<div class="row mut small" style="margin-top:8px"><span class="sp">Last run <b style="color:var(--ink)">' + (S.runs.last == null ? '—' : S.runs.last) + '</b></span><span class="sp">Best run <b style="color:var(--ink)">' + (S.runs.best == null ? '—' : S.runs.best) + '</b></span><span class="sp">Avg run <b style="color:var(--ink)">' + f1(S.runs.mean) + '</b></span><span>Best hand <b style="color:var(--ink)">' + (S.hands.best == null ? '—' : S.hands.best) + '</b></span></div></div>';
+    // entry
+    if (!st.scan) h += '<div class="card"><div class="row"><h3 class="sp" style="margin:0">Left die' + (st.selL ? ' = ' + st.selL : '') + '</h3><span class="mut tiny">green = on-axis · amber = off-axis</span></div>' + padHTML(s.set, 'left', st.selL) +
+      '<h3 style="margin:12px 0 6px">Right die' + (st.selL ? ' — tap to log the roll' : '') + '</h3>' + padHTML(s.set, 'right', null) + '</div>';
+    // last roll + actions
+    if (last) {
+      const lr = s.rolls[li];
+      h += '<div class="card"><div class="row"><div class="sp"><span style="font-size:26px;font-weight:800">' + lr.l + ' + ' + lr.r + ' = ' + last.t + '</span> ' +
+        (last.tag ? '<span class="pill ' + (last.tag === 'sevenout' ? 'bad' : last.tag === 'made' ? 'good' : last.tag === 'craps' ? 'warn' : '') + '">' + tagText[last.tag] + (last.tag === 'point' ? ' ' + last.t : '') + '</span>' : '') +
+        (last.t === 7 && last.tag === 'natural' ? ' <span class="pill bad">RUN ENDS</span>' : '') + (last.hard ? ' <span class="pill">HARD</span>' : '') + '</div></div>' +
+        '<div class="chips" style="margin-top:8px">' + a.ann.slice(-16).reverse().map(x => '<div class="chip ' + chipCls(x) + '"><b>' + x.t + '</b>' + s.rolls[x.i].l + '-' + s.rolls[x.i].r + '</div>').join('') + '</div></div>';
+    }
+    h += '<div class="row wrap"><button class="sp" data-act="undo"' + (s.rolls.length ? '' : ' disabled') + '>↩ Undo last</button><button class="sp' + (s.pendingBreak ? ' pri' : '') + '" data-act="newHand">' + (s.pendingBreak ? 'New hand queued ✓' : '⟲ New hand / dice passed') + '</button></div>';
+    h += '<div class="grid4" style="margin-top:10px">' +
+      '<div class="tile"><div class="k">Rolls</div><div class="v">' + S.n + '</div></div>' +
+      '<div class="tile"><div class="k">Sevens</div><div class="v">' + S.sevens + '</div></div>' +
+      '<div class="tile"><div class="k">SRR</div><div class="v">' + f1(S.srr, 1) + '</div></div>' +
+      '<div class="tile"><div class="k">On-axis</div><div class="v">' + pct(S.axis.both.pct, 0) + '</div></div></div>';
+    return h;
+  }
+
+  function sessionRow(s) {
+    const S = DT.computeStats([s], eo());
+    return '<div class="card tap" data-act="openSession" data-id="' + s.id + '"><div class="row"><div class="sp"><div style="font-weight:700">' + esc(s.name) + (!s.endedAt ? ' <span class="pill good">LIVE</span>' : '') + '</div>' +
+      '<div class="mut small">' + fmtDate(s.startedAt) + ' · ' + esc(s.set.name) + (s.notes ? ' · ' + esc(s.notes) : '') + '</div></div>' +
+      ((s.clips || []).length ? '<span title="has video">🎥</span>' : '') + '</div>' +
+      '<div class="grid4" style="margin-top:8px"><div class="tile"><div class="k">Rolls</div><div class="v" style="font-size:18px">' + S.n + '</div></div><div class="tile"><div class="k">SRR</div><div class="v" style="font-size:18px">' + f1(S.srr, 1) + '</div></div><div class="tile"><div class="k">Avg RBS</div><div class="v" style="font-size:18px">' + f1(S.rbs.mean, 1) + '</div></div><div class="tile"><div class="k">Best hand</div><div class="v" style="font-size:18px">' + (S.hands.best == null ? '—' : S.hands.best) + '</div></div></div></div>';
+  }
+  function sessionsHTML() {
+    if (st.view && st.view.type === 'session') return sessionDetailHTML();
+    const list = [...st.sessions].sort((a, b) => b.startedAt - a.startedAt);
+    return '<h1>Sessions</h1>' + (list.length ? list.map(sessionRow).join('') : '<div class="empty">No sessions yet. Start one on the Track tab.</div>');
+  }
+  function sessionDetailHTML() {
+    const s = st.sessions.find(x => x.id === st.view.id); if (!s) { st.view = null; return sessionsHTML(); }
+    const S = DT.computeStats([s], eo()), a = DT.analyze(s.rolls, eo());
+    let h = '<div class="row"><button class="sm" data-act="back">‹ Back</button><span class="sp"></span>' + (!s.endedAt ? '<button class="sm go" data-act="goTrack">Go to live tracking</button>' : '') + '</div>' +
+      '<h1 style="margin-top:10px">' + esc(s.name) + '</h1><div class="mut small">' + fmtDate(s.startedAt) + ' · set: ' + esc(s.set.name) + (s.notes ? ' · ' + esc(s.notes) : '') + '</div>';
+    // video
+    const clips = s.clips || [];
+    h += '<div class="card"><div class="row"><h3 class="sp" style="margin:0">Video</h3><label class="btn sm" style="margin:0;display:inline-flex;align-items:center;color:var(--ink)">Attach video…<input type="file" accept="video/*" id="attachVid" data-chg="attachVideo" style="display:none"></label></div>';
+    if (clips.length) {
+      const ci = st.player && st.player.sid === s.id ? st.player.ci : 0;
+      h += (clips.length > 1 ? '<div class="row wrap" style="margin:8px 0">' + clips.map((c, i) => '<button class="sm ' + (i === ci ? 'pri' : '') + '" data-act="selClip" data-i="' + i + '">Clip ' + (i + 1) + '</button>').join('') + '</div>' : '') +
+        '<video id="player" class="play" controls playsinline style="margin-top:8px"></video>' +
+        '<div class="row wrap" style="margin-top:8px"><span class="mut small sp">' + clips.map((c, i) => 'Clip ' + (i + 1) + ': ' + fmtDur(c.dur || 0) + ' · ' + (c.size / 1048576).toFixed(0) + ' MB').join(' · ') + '</span><button class="sm" data-act="shareClip" data-i="' + ci + '">Save / share</button></div>' +
+        (clips[ci] && clips[ci].external && !s.rolls.some(r => r.vt != null) ? '<label>Roll #1 happens at (seconds into this video)</label><input type="number" min="0" step="0.5" value="' + (clips[ci].offset || 0) + '" data-chg="setOffset" data-i="' + ci + '">' : '') +
+        (clips.some(c => c.recovered) ? '<p class="warnbox">A clip was cut short when the app was closed; what was recorded is kept.</p>' : '');
+    } else h += '<p class="mut small" style="margin-top:8px">No video. Record one during a session, or attach one you filmed with the Camera app.</p>';
+    h += '</div>';
+    h += '<h2>Stats</h2>' + statsHTML(S);
+    // hands
+    h += '<details><summary>Hands (' + a.hands.filter(x => x.rolls).length + ')</summary><div><table><tr><th>Hand</th><th>Before 7-out</th><th>Rolls</th><th>Pts set</th><th>Pts made</th><th>End</th></tr>' +
+      a.hands.filter(x => x.rolls).map(x => '<tr><td>#' + x.idx + '</td><td><b>' + x.beforeSeven + '</b></td><td>' + x.rolls + '</td><td>' + x.established + '</td><td>' + x.made + '</td><td>' + (x.ended === 'sevenout' ? '7-out' : x.ended === 'break' ? 'new hand' : 'live') + '</td></tr>').join('') + '</table></div></details>';
+    h += '<details><summary>Run lengths</summary><div><div class="runbars">' + a.runs.filter(r => r.complete).map(r => '<span class="' + (r.len <= 1 ? 'lo' : r.len >= 10 ? 'hi' : '') + '" title="ended by ' + r.ender + '">' + r.len + (r.ender === 'craps' ? 'c' : '') + '</span>').join('') +
+      '</div><p class="mut tiny">Each number = rolls before the run ended (7, or “c” = come-out craps). Red ≤1, green ≥10.</p></div></details>';
+    // rolls
+    const t0 = s.rolls.length ? s.rolls[0].t : 0;
+    h += '<details><summary>Every roll (' + s.rolls.length + ')</summary><div><table><tr><th>#</th><th>L-R</th><th>Tot</th><th>Event</th><th>Hand</th><th>Run</th><th></th></tr>' +
+      s.rolls.map((r, i) => { const x = a.ann[i], c = DT.classify(s.set, r.l, r.r); return '<tr class="tap" data-act="editRoll" data-id="' + s.id + '" data-i="' + i + '"><td>' + (i + 1) + '</td><td>' + r.l + '-' + r.r + (c.bothOn ? '' : ' <span class="up">·</span>') + '</td><td><b>' + x.t + '</b></td><td>' + tagText[x.tag] + '</td><td>' + x.hand + '</td><td>' + x.runPos + '</td><td>' +
+        (clips.length ? '<button class="sm" data-act="seek" data-id="' + s.id + '" data-i="' + i + '">▶</button>' : '') + '</td></tr>'; }).join('') + '</table><p class="mut tiny">Tap a row to fix or delete a roll. ▶ jumps the video to that roll. “·” marks a roll with a die off-axis.</p></div></details>';
+    h += '<div class="row wrap" style="margin-top:14px"><button class="sp" data-act="csvSession" data-id="' + s.id + '">Export CSV</button><button class="sp dng" data-act="delSession" data-id="' + s.id + '">Delete session</button></div>';
+    return h;
+  }
+
+  function setsHTML() {
+    const idx = setIndex();
+    let h = '<div class="row"><h1 class="sp">Dice sets</h1><button class="pri sm" data-act="newSet">+ New set</button></div>';
+    if (!idx.length) return h + '<div class="empty">No sets yet. Add the face pattern of your dice to start.</div>';
+    const rows = idx.map(x => ({ x, S: DT.computeStats(x.sessions, eo()) }));
+    h += '<div class="card"><h3>Compare sets</h3><table><tr><th>Set</th><th>Rolls</th><th>SRR</th><th>Avg RBS</th><th>On-axis</th><th>Primary</th></tr>' +
+      rows.map(({ x, S }) => '<tr><td>' + esc(x.name) + '</td><td>' + S.n + '</td><td>' + f1(S.srr, 2) + '</td><td>' + f1(S.rbs.mean, 1) + '</td><td>' + (S.n ? pct(S.axis.both.pct, 0) : '—') + '</td><td>' + (S.n ? pct(S.axis.primary.pct, 0) : '—') + '</td></tr>').join('') +
+      '</table><p class="mut tiny">Random dice: SRR 6.00 · avg RBS 5.0 · on-axis 44% · primary 11%. Sets with under a few hundred rolls aren’t comparable — the differences you see are mostly noise.</p></div>';
+    rows.forEach(({ x, S }) => {
+      h += '<div class="card"><div class="row"><div class="sp"><b>' + esc(x.name) + '</b><div class="mut small">' + (x.set.left ? 'Left ' + DT.dieFaces(x.set.left).join(' ') + ' · Right ' + DT.dieFaces(x.set.right).join(' ') : '') + ' <span class="tiny">(Top, Front, Bottom, Back, Left, Right)</span></div><div class="mut small">' + x.sessions.length + ' session' + (x.sessions.length === 1 ? '' : 's') + ' · ' + S.n + ' rolls</div></div></div>' +
+        '<div class="row wrap" style="margin-top:8px"><button class="sm" data-act="scopeSet" data-id="' + x.id + '">Full stats</button>' + (st.sets.find(z => z.id === x.id) ? '<button class="sm" data-act="editSet" data-id="' + x.id + '">Edit</button><button class="sm dng" data-act="delSet" data-id="' + x.id + '">Delete</button>' : '') + '</div></div>';
+    });
+    return h;
+  }
+
+  function statsScreenHTML() {
+    const idx = setIndex();
+    let sessions = st.sessions, label = 'All sessions';
+    if (st.statsScope.startsWith('set:')) { const x = idx.find(i => i.id === st.statsScope.slice(4)); sessions = x ? x.sessions : []; label = x ? x.name : ''; }
+    else if (st.statsScope.startsWith('ses:')) { const x = st.sessions.find(i => i.id === st.statsScope.slice(4)); sessions = x ? [x] : []; label = x ? x.name : ''; }
+    const S = DT.computeStats(sessions, eo());
+    return '<h1>Stats</h1><label style="margin-top:0">Show</label><select data-chg="scope"><option value="all"' + (st.statsScope === 'all' ? ' selected' : '') + '>All sessions</option>' +
+      '<optgroup label="By dice set">' + idx.map(x => '<option value="set:' + x.id + '"' + (st.statsScope === 'set:' + x.id ? ' selected' : '') + '>' + esc(x.name) + '</option>').join('') + '</optgroup>' +
+      '<optgroup label="By session">' + [...st.sessions].sort((a, b) => b.startedAt - a.startedAt).map(x => '<option value="ses:' + x.id + '"' + (st.statsScope === 'ses:' + x.id ? ' selected' : '') + '>' + esc(x.name) + '</option>').join('') + '</optgroup></select>' +
+      '<div style="margin-top:10px">' + statsHTML(S) + '</div>';
+  }
+
+  function moreHTML() {
+    const c = st.settings;
+    return '<h1>More</h1><div class="card"><h3>Run counting</h3>' +
+      '<label class="chk"><input type="checkbox" data-chg="setting" data-k="crapsEndsRun" ' + (c.crapsEndsRun ? 'checked' : '') + '><span>A come-out craps (2, 3, 12) also ends a run <span class="mut small">— every 7 always does. Turn off to count seven-to-seven only.</span></span></label>' +
+      '<p class="mut small">A <b>hand</b> always runs from the come-out to the seven-out (a come-out 7 or craps doesn’t end it).</p></div>' +
+      '<div class="card"><h3>Video</h3><label class="chk"><input type="checkbox" data-chg="setting" data-k="audio" ' + (c.audio ? 'checked' : '') + '><span>Record sound too</span></label>' +
+      '<label>Quality (bigger = more storage)</label><select data-chg="setting" data-k="quality">' + [['low', 'Low — about 8 MB/min'], ['medium', 'Medium — about 17 MB/min'], ['high', 'High — about 34 MB/min']].map(o => '<option value="' + o[0] + '"' + (c.quality === o[0] ? ' selected' : '') + '>' + o[1] + '</option>').join('') + '</select>' +
+      '<label class="chk"><input type="checkbox" data-chg="setting" data-k="wake" ' + (c.wake ? 'checked' : '') + '><span>Keep the screen awake while tracking</span></label>' +
+      '<label class="chk"><input type="checkbox" data-chg="setting" data-k="pauseOnEnter" ' + (c.pauseOnEnter ? 'checked' : '') + '><span>When logging from a video, pause it while I tap the dice</span></label></div>' +
+      '<div class="card"><h3>Your data</h3>' + (Store.ok ? '' : '<div class="warnbox">Storage isn’t available in this view, so data only lasts until it’s closed. Export often, or open the hosted copy.</div>') +
+      '<div class="row wrap"><button class="sp go" data-act="copyBackup">Copy backup</button><button class="sp" data-act="copyCsv">Copy rolls (CSV)</button></div>' +
+      '<p class="mut tiny">Copy works everywhere — paste into Notes or Mail to keep it. Do this after each session.</p>' +
+      '<div class="row wrap" style="margin-top:6px"><button class="sp" data-act="csvAll">Save CSV file</button><button class="sp" data-act="jsonAll">Save backup file</button></div>' +
+      '<label>Restore: paste a backup here</label><textarea id="restoreText" rows="3" placeholder="Paste backup text…"></textarea><button class="sp" style="margin-top:6px;width:100%" data-act="pasteRestore">Restore pasted backup</button>' +
+      '<div class="row wrap" style="margin-top:8px"><label class="btn sp" style="margin:0;text-align:center;color:var(--ink)">Restore backup…<input type="file" accept="application/json,.json" data-chg="importJson" style="display:none"></label><button class="sp" data-act="persist">Ask to keep data</button></div>' +
+      '<p class="mut tiny" id="storinfo">Backups include sets, sessions and rolls — not video files (save those from each session).</p>' +
+      '<button class="dng" style="margin-top:8px;width:100%" data-act="eraseAll">Erase everything</button></div>' +
+      '<div class="card"><h3>About these numbers</h3><p class="mut small">Stats follow BoneTracker Extended 5.8: SRR, on-axis / primary / pitch landings, group ratios, hardways and rolls-between-sevens. Reference values are for fair dice. Dice-control claims need thousands of rolls and a control group to test properly — this app records and describes your results; it can’t tell you the cause.</p></div>';
+  }
+
+  /* ================= render ================= */
+  const TABS = [['track', '🎲', 'Track'], ['sessions', '📋', 'Sessions'], ['sets', '🧩', 'Sets'], ['stats', '📊', 'Stats'], ['more', '⚙️', 'More']];
+  function render() {
+    const root = $('#app');
+    const banner = Store.ok ? '' : '<div class="warnbox">⚠︎ Storage unavailable here — data will be lost when this closes. Use More → Backup.</div>';
+    let body;
+    if (st.tab === 'track') body = active() ? liveHTML(active()) : startHTML();
+    else if (st.tab === 'sessions') body = sessionsHTML();
+    else if (st.tab === 'sets') body = setsHTML();
+    else if (st.tab === 'stats') body = statsScreenHTML();
+    else body = moreHTML();
+    const keepScroll = window.scrollY;
+    root.innerHTML = banner + body;
+    $('#tabs').innerHTML = TABS.map(t => '<button class="' + (st.tab === t[0] ? 'on' : '') + '" data-act="tab" data-t="' + t[0] + '"><b>' + t[1] + '</b>' + t[2] + '</button>').join('');
+    const slot = $('#camslot');
+    if (slot && rec) { slot.appendChild(camVideo); camVideo.play && camVideo.play().catch(() => {}); } else if (camVideo.parentNode !== park) park.appendChild(camVideo);
+    const rslot = $('#revslot');
+    if (rslot) { rslot.appendChild(revVideo); const as = active(); if (as) loadReviewVideo(as); } else if (revVideo.parentNode !== park) park.appendChild(revVideo);
+    const sslot = $('#scanslot');
+    if (sslot) { sslot.appendChild(scanCanvas); drawScan(); } else if (scanCanvas.parentNode !== park) park.appendChild(scanCanvas);
+    if (st.tab === 'sessions' && st.view && st.view.type === 'session') mountPlayer();
+    if (st.tab === 'more') storageInfo();
+    window.scrollTo(0, keepScroll);
+  }
+  async function storageInfo() {
+    try { if (navigator.storage && navigator.storage.estimate) { const e = await navigator.storage.estimate(); const el = $('#storinfo'); if (el) el.textContent = 'Using ' + (e.usage / 1048576).toFixed(0) + ' MB of about ' + (e.quota / 1048576).toFixed(0) + ' MB available. Backups include sets, sessions and rolls — not video files (save those from each session).'; } } catch (e) { /* ignore */ }
+  }
+
+  /* ----- video player ----- */
+  function ensurePlayer(s, ci) {
+    if (st.player && st.player.sid === s.id && st.player.ci === ci) { if (st.player.url) return Promise.resolve(); if (st.player.p) return st.player.p; }
+    else { if (st.player && st.player.url) URL.revokeObjectURL(st.player.url); st.player = { sid: s.id, ci, url: null }; }
+    const pl = st.player;
+    pl.p = clipBlob(s, ci).then(b => { pl.url = URL.createObjectURL(b); });
+    return pl.p;
+  }
+  async function mountPlayer(seekTo) {
+    const s = st.sessions.find(x => x.id === (st.view && st.view.id)); const v = $('#player'); if (!s || !v || !(s.clips || []).length) return;
+    const ci = st.player && st.player.sid === s.id ? st.player.ci : 0;
+    try { await ensurePlayer(s, ci); } catch (e) { toast('Could not load video'); return; }
+    if (v.getAttribute('data-src') !== st.player.url) { v.setAttribute('data-src', st.player.url); v.src = st.player.url; }
+    if (seekTo != null) { const go = () => { v.currentTime = Math.max(0, seekTo); v.play().catch(() => {}); }; if (v.readyState >= 1) go(); else v.addEventListener('loadedmetadata', go, { once: true }); }
+  }
+  function rollVideoTime(s, ci, i) {
+    const c = s.clips[ci], r = s.rolls[i];
+    if (r.vt != null && (r.cl == null || r.cl === ci)) return Math.max(0, r.vt - LEAD); // tap time minus a few seconds so you see the throw
+    if (c.external) return Math.max(0, (r.t - s.rolls[0].t) / 1000 + (c.offset || 0));
+    return Math.max(0, (r.t - c.startedAt) / 1000);
+  }
+  async function loadReviewVideo(s) {
+    if (!s || !(s.clips || []).length) return;
+    const ci = st.player && st.player.sid === s.id ? Math.min(st.player.ci, s.clips.length - 1) : 0;
+    try { await ensurePlayer(s, ci); } catch (e) { toast('Could not load video'); return; }
+    if (revVideo.getAttribute('data-src') !== st.player.url) { revVideo.setAttribute('data-src', st.player.url); revVideo.src = st.player.url; }
+  }
+  const curClip = s => (st.player && st.player.sid === s.id ? Math.min(st.player.ci, Math.max(0, (s.clips || []).length - 1)) : 0);
+  const lastEntered = s => s.rolls.reduce((m, r, i) => (r.t > s.rolls[m].t ? i : m), 0);
+  function reviewCardHTML(s) {
+    const clips = s.clips || [], ci = curClip(s);
+    const pick = '<div class="row wrap"><label class="btn sp go" style="margin:0;text-align:center;color:#04281a;display:block">Choose from Photos<input type="file" accept="video/*" data-chg="attachVideo" data-sid="' + s.id + '" style="display:none"></label>' +
+      '<label class="btn sp" style="margin:0;text-align:center;color:var(--ink);display:block">Film with Camera<input type="file" accept="video/*" capture="environment" data-chg="attachVideo" data-sid="' + s.id + '" style="display:none"></label></div>';
+    if (!clips.length) return '<div class="card"><h3>Add the video of your rolls</h3><p class="mut small">Film the throws with your iPhone Camera, then pick the video here. Then let the app find and read every roll for you — or tap the dice yourself as it plays.</p>' + pick + '</div>';
+    return '<div class="card" style="padding:8px">' +
+      '<div class="cam rv" id="revslot"></div>' +
+      (st.scan ? '' : '<button class="go" style="width:100%;margin-top:8px;min-height:46px" data-act="openScan">✨ Auto-scan this video for rolls</button>') +
+      '<div class="row" style="margin-top:8px;gap:6px"><button class="sm sp" data-act="skip" data-d="-10">−10s</button><button class="sm sp" data-act="skip" data-d="-3">−3s</button><button class="sm sp pri" data-act="playpause">▶︎ / ❚❚</button><button class="sm sp" data-act="skip" data-d="3">+3s</button><button class="sm sp" data-act="skip" data-d="10">+10s</button></div>' +
+      '<div class="row" style="margin-top:6px;gap:6px"><span class="mut small" style="width:48px">Speed</span>' + [0.5, 1, 1.5, 2].map(r => '<button class="sm sp' + (Math.abs(revVideo.playbackRate - r) < 0.01 ? ' pri' : '') + '" data-act="rate" data-r="' + r + '">' + r + '×</button>').join('') + '</div>' +
+      (clips.length > 1 ? '<div class="row wrap" style="margin-top:6px">' + clips.map((c, i) => '<button class="sm ' + (i === ci ? 'pri' : '') + '" data-act="selRevClip" data-i="' + i + '">Clip ' + (i + 1) + '</button>').join('') + '</div>' : '') +
+      '<div class="row" style="margin-top:6px"><span class="mut tiny sp">' + (st.settings.pauseOnEnter ? 'Video pauses when you tap the left die and resumes after the right.' : 'Video keeps playing while you enter.') + '</span>' +
+      '<label class="btn sm" style="margin:0;color:var(--ink)">+ Another video<input type="file" accept="video/*" data-chg="attachVideo" data-sid="' + s.id + '" style="display:none"></label></div></div>';
+  }
+
+
+  /* ================= auto-scan: find and read the rolls in the video ================= */
+  const scanCanvas = document.createElement('canvas');
+  scanCanvas.style.cssText = 'width:100%;border-radius:12px;display:block;touch-action:manipulation';
+  park.appendChild(scanCanvas);
+  scanCanvas.addEventListener('click', e => {
+    const sc = st.scan; if (!sc || !sc.img || sc.step !== 'cal') return;
+    const r = scanCanvas.getBoundingClientRect(), p = { x: (e.clientX - r.left) * scanCanvas.width / r.width, y: (e.clientY - r.top) * scanCanvas.height / r.height };
+    sc.taps = sc.two ? (sc.taps.length >= 2 ? [p] : sc.taps.concat([p])) : [p];
+    scanRecalc(); render();
+  });
+  function scanRecalc() {
+    const sc = st.scan; sc.cal = null; sc.blobs = []; sc.msg = '';
+    if (!sc.img || !sc.taps.length) return;
+    const cal = DV.calibrate(sc.img, sc.taps, sc.tol);
+    if (!cal || cal.error) { sc.msg = cal && cal.error === 'toobig' ? 'That looks like the table (or a dot), not a die. Tap a plain, flat part of a die.' : 'No die found there — tap a plain part of a die.'; return; }
+    sc.cal = cal; sc.blobs = DV.findBlobs(sc.img, cal, { withPips: true }).sort((a, b) => (a.model - b.model) || (a.cx - b.cx));
+    const ok = sc.blobs.filter(b => b.ok);
+    if (sc.two && sc.taps.length < 2) sc.msg = 'Now tap your RIGHT die.';
+    else if (sc.blobs.length === 2 && ok.length === 2) sc.msg = '✓ Found both dice: left ' + sc.blobs[0].pips + ', right ' + sc.blobs[1].pips + '. If that matches the picture, you’re set.';
+    else sc.msg = 'Found ' + sc.blobs.length + ' dice-like shape' + (sc.blobs.length === 1 ? '' : 's') + ', ' + ok.length + ' readable. Both dice should be outlined in green with the right dot count — try another tap or the sensitivity slider.';
+  }
+  function drawScan() {
+    const sc = st.scan; if (!sc || !sc.img) return;
+    scanCanvas.width = sc.img.width; scanCanvas.height = sc.img.height;
+    const x = scanCanvas.getContext('2d'), W = sc.img.width, fs = Math.round(W / 26); x.putImageData(sc.img, 0, 0); x.lineWidth = Math.max(2, W / 300); x.font = 'bold ' + fs + 'px system-ui';
+    (sc.blobs || []).forEach(b => { const c = b.ok ? '#3ddc97' : '#ff6b6b'; x.strokeStyle = c; x.fillStyle = c; x.strokeRect(b.x0 - 4, b.y0 - 4, b.w + 8, b.h + 8); x.fillText(b.ok ? String(b.pips) : '?', b.x0, Math.max(fs, b.y0 - 8)); });
+    (sc.taps || []).forEach(t => { x.strokeStyle = '#f2c14e'; x.beginPath(); x.arc(t.x, t.y, Math.max(6, W / 120), 0, 7); x.stroke(); });
+  }
+  function scanRowHTML(c, i) {
+    const sel = (w, v) => '<select data-chg="scanEdit" data-i="' + i + '" data-w="' + w + '" style="width:62px">' + (v == null ? '<option value="" selected>?</option>' : '') + [1, 2, 3, 4, 5, 6].map(n => '<option' + (n === v ? ' selected' : '') + '>' + n + '</option>').join('') + '</select>';
+    const warn = !c.edited && (c.l == null || c.r == null || c.conf < 1);
+    return '<div class="card" style="padding:8px;' + (warn ? 'border-color:var(--warn)' : '') + '"><div class="row" style="gap:8px;align-items:center">' + (c.snap ? '<img src="' + c.snap + '" style="width:104px;border-radius:8px;flex:none">' : '') +
+      '<div class="sp"><div class="small mut">' + fmtDur(c.vt) + (c.note ? ' · ' + c.note : '') + (warn ? ' · <b style="color:var(--warn)">check</b>' : '') + '</div>' +
+      '<div class="row" style="gap:6px;margin-top:4px"><span class="small">L</span>' + sel('l', c.l) + '<span class="small">R</span>' + sel('r', c.r) + '<b>' + (c.l != null && c.r != null ? '= ' + (c.l + c.r) : '') + '</b></div></div>' +
+      '<div style="display:flex;flex-direction:column;gap:6px"><button class="sm" data-act="scanJump" data-i="' + i + '">▶</button><button class="sm dng" data-act="scanDrop" data-i="' + i + '">✕</button></div></div></div>';
+  }
+  function scanHTML(s) {
+    const sc = st.scan; let h = '<div class="card"><div class="row"><h3 class="sp" style="margin:0">Auto-scan</h3>' + (sc.step === 'run' ? '' : '<button class="sm ghost" data-act="scanCancel">Close</button>') + '</div>';
+    if (sc.step === 'cal') {
+      if (!sc.img) h += '<p class="mut small">Step 1 of 2 — pause the video on a moment when both dice are sitting still on the table, then tap the button. You’ll show the app what your dice look like.</p><button class="go" style="width:100%;min-height:46px" data-act="scanFrame">Use this frame</button>';
+      else {
+        const ok = sc.cal && sc.blobs.some(b => b.ok) && (!sc.two || sc.taps.length >= 2);
+        h += '<div id="scanslot"></div><p class="small" style="margin:8px 0 4px">' + (sc.two ? 'Tap your <b>left</b> die, then your <b>right</b> die' : 'Tap <b>one die</b>') + ' on a plain spot — not on a dot.</p>' +
+          '<label class="chk"><input type="checkbox" data-chg="scanTwo" ' + (sc.two ? 'checked' : '') + '><span>My two dice are different colours <span class="mut small">— otherwise the left die is whichever is further left in the picture.</span></span></label>' +
+          (sc.msg ? '<p class="small" style="margin:6px 0;color:' + (ok ? 'var(--acc2)' : 'var(--warn)') + '">' + esc(sc.msg) + '</p>' : '') +
+          '<div class="row" style="margin-top:6px"><span class="mut small" style="width:92px">Sensitivity</span><input type="range" class="sp" min="20" max="70" step="5" value="' + sc.tol + '" data-chg="scanTol"></div>' +
+          '<div class="row" style="margin-top:6px"><span class="mut small" style="width:92px">Scan speed</span><select class="sp" data-chg="scanRate">' + [[1, 'Careful (1×)'], [2, 'Normal (2×)'], [3, 'Fast (3×)']].map(o => '<option value="' + o[0] + '"' + (sc.rate === o[0] ? ' selected' : '') + '>' + o[1] + '</option>').join('') + '</select></div>' +
+          '<div class="row" style="margin-top:10px"><button class="sp" data-act="scanFrame">Different frame</button><button class="sp go" data-act="scanRun"' + (ok ? '' : ' disabled') + '>Step 2 — scan the video</button></div>';
+      }
+    } else if (sc.step === 'run') {
+      h += '<p class="mut small">Watching the video and reading each roll. Stay on this screen until it finishes.</p><div style="height:10px;background:#0006;border-radius:6px;overflow:hidden"><div id="scanbar" style="height:100%;width:0;background:var(--acc2)"></div></div>' +
+        '<div class="row" style="margin-top:8px"><span class="mut small sp" id="scancount">Rolls found: 0</span><button class="sm dng" data-act="scanStop">Stop</button></div>';
+    } else {
+      const c = sc.cands, need = c.filter(x => x.l == null || x.r == null).length, chk = c.filter(x => !x.edited && x.l != null && x.r != null && x.conf < 1).length;
+      h += c.length ? '<p class="small" style="margin:4px 0">Found <b>' + c.length + '</b> roll' + (c.length === 1 ? '' : 's') + (need || chk ? ' — <span style="color:var(--warn)">' + (need + chk) + ' to check</span>' : ' — all read confidently') + '. Tap ▶ to watch one, fix a number if it’s wrong, ✕ to drop a false one.</p>' : '<p class="small" style="color:var(--warn)">No rolls found. Try a different frame for the dice, or raise the sensitivity.</p>';
+      h += '</div>' + c.map(scanRowHTML).join('') + '<div class="card"><div class="row"><button class="sp" data-act="scanAgain">Re-calibrate</button><button class="sp go" data-act="scanAdd"' + (c.length && !need ? '' : ' disabled') + '>Add ' + c.length + ' roll' + (c.length === 1 ? '' : 's') + '</button></div>' + (need ? '<p class="tiny" style="color:var(--warn);margin:6px 0 0">Fill in the “?” rolls (or drop them) to add.</p>' : '');
+    }
+    return h + '</div>';
+  }
+
+  /* ================= actions ================= */
+  async function commit(l, r) {
+    const s = active(); if (!s) return;
+    const now = Date.now(), roll = { l, r, t: now };
+    if (rec && rec.sid === s.id) { roll.cl = rec.clipIdx; roll.vt = (now - rec.vStart) / 1000; }
+    else if (s.mode === 'review' && (s.clips || []).length && revVideo.src) { roll.cl = curClip(s); roll.vt = st.selVt != null ? st.selVt : revVideo.currentTime; }
+    if (s.pendingBreak) { roll.brk = true; s.pendingBreak = false; }
+    s.rolls.push(roll); st.selL = null; st.selVt = null;
+    // rolls entered out of order (you scrubbed back) are kept in video-time order so hands and runs stay correct
+    if (s.rolls.every(x => x.vt != null)) s.rolls.sort((p, q) => ((p.cl || 0) - (q.cl || 0)) || (p.vt - q.vt) || (p.t - q.t));
+    if (st.resume) { st.resume = false; revVideo.play().catch(() => {}); }
+    const a = DT.analyze(s.rolls, eo()); const x = a.ann[a.ann.length - 1];
+    await saveSession(s);
+    toast(l + ' + ' + r + ' = ' + x.t + (x.tag ? ' · ' + tagText[x.tag] : ''));
+    render();
+  }
+  const A = {
+    tab(el) { st.tab = el.dataset.t; render(); window.scrollTo(0, 0); },
+    pickStartSet(el) { st.startSetId = el.value; },
+    async startSession() {
+      const set = st.sets.find(x => x.id === $('#startSet').value); if (!set) return;
+      const canLive = !!(window.isSecureContext && navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+      const mode = st.settings.mode === 'live' && canLive ? 'live' : 'review', wantRec = mode === 'live', notes = $('#startNotes').value.trim();
+      const s = { id: uid(), name: set.name + ' · ' + new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric' }), setId: set.id, set: clone({ name: set.name, left: set.left, right: set.right }), notes, startedAt: Date.now(), endedAt: null, rolls: [], pendingBreak: false, clips: [], mode };
+      st.sessions.push(s); st.activeId = s.id; st.selL = null; st.camError = null;
+      // ask for the camera straight away, inside the tap, so iOS treats it as a user action
+      const recP = wantRec ? startRecording(s).catch(e => { st.camError = (e && e.name === 'NotAllowedError') ? 'permission denied — allow camera access for this site' : ((e && e.message) || 'could not start'); toast('Camera unavailable — tracking without video'); }) : Promise.resolve();
+      await saveSession(s); await saveMeta('activeId', s.id);
+      if (st.settings.wake) wake(true);
+      render();
+      await recP; render();
+    },
+    async startVideo() { const s = active(); if (!s) return; try { await startRecording(s); } catch (e) { st.camError = (e && e.name === 'NotAllowedError') ? 'permission denied — allow camera access in Settings › Safari' : ((e && e.message) || 'could not start'); } render(); },
+    async stopVideo() { await stopRecording(); toast('Video saved'); render(); },
+    toggleCam() { st.hideCam = !st.hideCam; render(); },
+    pickL(el) {
+      st.selL = +el.dataset.v;
+      const s = active();
+      if (s && s.mode === 'review' && (s.clips || []).length && revVideo.src) {
+        if (st.selVt == null) st.selVt = revVideo.currentTime;
+        if (st.settings.pauseOnEnter && !revVideo.paused) { revVideo.pause(); st.resume = true; }
+      }
+      render();
+    },
+    pickR(el) { if (!st.selL) { toast('Tap the left die first'); return; } commit(st.selL, +el.dataset.v); },
+    async undo() { const s = active(); if (!s || !s.rolls.length) return; const r = s.rolls.splice(lastEntered(s), 1)[0]; if (r.brk) s.pendingBreak = true; st.selL = null; st.selVt = null; await saveSession(s); toast('Removed ' + r.l + '-' + r.r); render(); },
+    async newHand() { const s = active(); if (!s) return; s.pendingBreak = !s.pendingBreak; await saveSession(s); toast(s.pendingBreak ? 'Next roll starts a new hand' : 'Cancelled'); render(); },
+    async endSession() {
+      const s = active(); if (!s) return;
+      if (!(await ask(s.rolls.length ? 'End this session? (' + s.rolls.length + ' rolls saved)' : 'End this session with no rolls? It will be discarded.', 'End session'))) return;
+      await stopRecording(); revVideo.pause(); wake(false);
+      if (!s.rolls.length) { for (const c of s.clips || []) await Store.delClip(c.key); st.sessions = st.sessions.filter(x => x !== s); await Store.del('sessions', s.id); }
+      else { s.endedAt = Date.now(); await saveSession(s); }
+      st.activeId = null; await saveMeta('activeId', null); st.selL = null;
+      if (s.rolls.length) { st.tab = 'sessions'; st.view = { type: 'session', id: s.id }; }
+      render();
+    },
+    openSession(el) { st.view = { type: 'session', id: el.dataset.id }; render(); window.scrollTo(0, 0); },
+    back() { st.view = null; render(); },
+    goTrack() { st.tab = 'track'; render(); },
+    selClip(el) { if (st.player && st.player.url) URL.revokeObjectURL(st.player.url); st.player = { sid: st.view.id, ci: +el.dataset.i, url: null }; render(); },
+    async seek(el) {
+      const s = st.sessions.find(x => x.id === el.dataset.id), i = +el.dataset.i, r = s.rolls[i];
+      let ci = r.cl != null ? r.cl : 0; if (!s.clips[ci]) ci = 0;
+      const changed = !st.player || st.player.sid !== s.id || st.player.ci !== ci;
+      if (changed) { if (st.player && st.player.url) URL.revokeObjectURL(st.player.url); st.player = { sid: s.id, ci, url: null }; if (s.clips.length > 1) render(); }
+      await mountPlayer(rollVideoTime(s, ci, i)); const v = $('#player'); if (v) v.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    },
+    async shareClip(el) { const s = st.sessions.find(x => x.id === st.view.id), i = +el.dataset.i, c = s.clips[i]; const blob = await clipBlob(s, i); const ext = /mp4/.test(c.mime) ? 'mp4' : /webm/.test(c.mime) ? 'webm' : 'mov'; await saveFile(s.name.replace(/[^\w\-]+/g, '_') + '_clip' + (i + 1) + '.' + ext, blob); },
+    async delSession(el) {
+      const s = st.sessions.find(x => x.id === el.dataset.id); if (!s) return;
+      if (!(await ask('Delete “' + s.name + '” and its video?', 'Delete', true))) return;
+      if (rec && rec.sid === s.id) await stopRecording();
+      for (const c of s.clips || []) await Store.delClip(c.key);
+      await Store.del('sessions', s.id); st.sessions = st.sessions.filter(x => x !== s);
+      if (st.activeId === s.id) { st.activeId = null; await saveMeta('activeId', null); wake(false); }
+      st.view = null; render();
+    },
+    csvSession(el) { const s = st.sessions.find(x => x.id === el.dataset.id); saveFile(s.name.replace(/[^\w\-]+/g, '_') + '.csv', new Blob([DT.toCSV([s], eo())], { type: 'text/csv' })); },
+    csvAll() { if (!st.sessions.length) return toast('Nothing to export yet'); saveFile('dice-tracker-rolls.csv', new Blob([DT.toCSV([...st.sessions].sort((a, b) => a.startedAt - b.startedAt), eo())], { type: 'text/csv' })); },
+    jsonAll() { saveFile('dice-tracker-backup.json', new Blob([JSON.stringify({ app: 'dice-tracker', v: 1, sets: st.sets, sessions: st.sessions, settings: st.settings }, null, 1)], { type: 'application/json' })); },
+    async persist() { try { const ok = navigator.storage && navigator.storage.persist ? await navigator.storage.persist() : false; toast(ok ? 'Storage will be kept' : 'Not granted — keep backups'); } catch (e) { toast('Not available here'); } },
+    async eraseAll() { if (!(await ask('Erase ALL sets, sessions and videos on this device?', 'Erase everything', true))) return; await stopRecording(); await Store.clear(); st.sets = []; st.sessions = []; st.activeId = null; st.view = null; st.player = null; wake(false); toast('Erased'); render(); },
+    scope(el) { st.statsScope = el.value; render(); },
+    scopeSet(el) { st.statsScope = 'set:' + el.dataset.id; st.tab = 'stats'; render(); window.scrollTo(0, 0); },
+    setting(el) { const k = el.dataset.k; st.settings[k] = el.type === 'checkbox' ? el.checked : el.value; saveMeta('settings', st.settings); if (k === 'wake') wake(el.checked && !!active()); render(); },
+    // dice sets
+    newSet() { setEditor(null); },
+    editSet(el) { setEditor(el.dataset.id); },
+    async addSample() { const s = { id: uid(), ...clone(SAMPLE) }; st.sets.push(s); await Store.put('sets', s); st.startSetId = s.id; render(); toast('Sample set added — edit it to match yours'); },
+    setPrev() { updateSetPreview(); },
+    async saveSet(el) {
+      const g = id => +$('#' + id).value;
+      const s = { id: el.dataset.id || uid(), name: $('#setName').value.trim(), left: { top: g('lt'), front: g('lf'), left: g('ll') }, right: { top: g('rt'), front: g('rf'), left: g('rl') } };
+      const err = DT.validateSet(s); if (err) { $('#setErr').textContent = err; return; }
+      const i = st.sets.findIndex(x => x.id === s.id); if (i >= 0) st.sets[i] = s; else st.sets.push(s);
+      await Store.put('sets', s); closeModal(); render(); toast('Set saved');
+    },
+    async delSet(el) {
+      const s = st.sets.find(x => x.id === el.dataset.id); if (!s) return;
+      if (!(await ask('Delete the set “' + s.name + '”? Past sessions keep their own copy and stats.', 'Delete', true))) return;
+      st.sets = st.sets.filter(x => x !== s); await Store.del('sets', s.id); render();
+    },
+    // roll editing
+    editRoll(el) { const s = st.sessions.find(x => x.id === el.dataset.id), i = +el.dataset.i, r = s.rolls[i]; st.edit = { sid: s.id, i, l: r.l, r: r.r }; rollEditor(); },
+    eL(el) { st.edit.l = +el.dataset.v; rollEditor(); },
+    eR(el) { st.edit.r = +el.dataset.v; rollEditor(); },
+    async eSave() { const s = st.sessions.find(x => x.id === st.edit.sid); const r = s.rolls[st.edit.i]; r.l = st.edit.l; r.r = st.edit.r; await saveSession(s); closeModal(); render(); toast('Roll updated'); },
+    async eDel() {
+      const s = st.sessions.find(x => x.id === st.edit.sid); const [r] = s.rolls.splice(st.edit.i, 1);
+      if (r.brk && s.rolls[st.edit.i]) s.rolls[st.edit.i].brk = true;
+      await saveSession(s); closeModal(); render(); toast('Roll deleted');
+    },
+    async attachVideo(el) {
+      const f = el.files && el.files[0]; if (!f) return; const s = st.sessions.find(x => x.id === (el.dataset.sid || (st.view && st.view.id))); if (!s) return;
+      const key = s.id + '#' + (s.clips || []).length; await Store.put('chunks', { sid: key, idx: 0, blob: f });
+      s.clips = s.clips || []; s.clips.push({ key, mime: f.type || 'video/mp4', startedAt: s.startedAt, chunks: 1, size: f.size, dur: 0, external: true, offset: 0 });
+      await saveSession(s); if (st.player && st.player.url) URL.revokeObjectURL(st.player.url); st.player = { sid: s.id, ci: s.clips.length - 1, url: null }; render(); toast(s.mode === 'review' ? 'Video added — press play and log rolls' : 'Video attached — set where roll #1 is'); el.value = '';
+    },
+    async setOffset(el) { const s = st.sessions.find(x => x.id === st.view.id); s.clips[+el.dataset.i].offset = +el.value || 0; await saveSession(s); toast('Saved'); },
+    async importJson(el) {
+      const f = el.files && el.files[0]; if (!f) return;
+      try { await restoreFrom(JSON.parse(await f.text())); } catch (e) { toast('Could not read that file'); }
+    },
+    setMode(el) { st.settings.mode = el.dataset.m; saveMeta('settings', st.settings); render(); },
+    openScan() { if (!active()) return; revVideo.pause(); st.scan = { step: 'cal', img: null, taps: [], two: false, tol: DV.TOL_DEFAULT, rate: 2, cal: null, blobs: [], msg: '', cands: [] }; render(); },
+    scanCancel() { if (st.scan && st.scan.signal) st.scan.signal.cancelled = true; st.scan = null; render(); },
+    scanFrame() {
+      const v = revVideo, sc = st.scan; if (!sc) return; if (!v.videoWidth) { toast('Wait for the video to load'); return; }
+      v.pause(); const w = Math.min(v.videoWidth, 1280), h = Math.round(w * v.videoHeight / v.videoWidth), c = document.createElement('canvas'); c.width = w; c.height = h;
+      const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(v, 0, 0, w, h); sc.img = x.getImageData(0, 0, w, h); sc.taps = []; sc.cal = null; sc.blobs = []; sc.msg = ''; render();
+    },
+    scanTwo(el) { const sc = st.scan; sc.two = el.checked; sc.taps = []; sc.cal = null; sc.blobs = []; sc.msg = ''; render(); },
+    scanTol(el) { const sc = st.scan; sc.tol = +el.value; scanRecalc(); render(); },
+    scanRate(el) { st.scan.rate = +el.value; },
+    async scanRun() {
+      const sc = st.scan; if (!sc || !sc.cal) return;
+      sc.step = 'run'; sc.signal = { cancelled: false }; sc.cands = []; wake(true); render();
+      let out = [];
+      try {
+        out = await DV.scanVideo(revVideo, sc.cal, {
+          rate: sc.rate || 2, interval: .1, signal: sc.signal,
+          onProgress: p => { const b = $('#scanbar'); if (b) b.style.width = Math.min(100, p * 100) + '%'; },
+          onCandidate: c => { sc.cands.push(c); const t = $('#scancount'); if (t) t.textContent = 'Rolls found: ' + sc.cands.length + ' · now at ' + fmtDur(c.vt); }
+        });
+      } catch (e) { toast('Scan stopped: ' + ((e && e.message) || 'error')); out = sc.cands; }
+      if (!st.settings.wake) wake(false);
+      if (st.scan !== sc) return;
+      sc.cands = out.map(c => ({ ...c, edited: false })); sc.step = 'res'; revVideo.currentTime = 0; render();
+    },
+    scanStop() { if (st.scan && st.scan.signal) st.scan.signal.cancelled = true; },
+    scanAgain() { st.scan.step = 'cal'; render(); },
+    scanEdit(el) { const c = st.scan.cands[+el.dataset.i]; c[el.dataset.w] = el.value ? +el.value : null; c.edited = true; render(); },
+    scanDrop(el) { st.scan.cands.splice(+el.dataset.i, 1); render(); },
+    scanJump(el) { const c = st.scan.cands[+el.dataset.i]; revVideo.currentTime = Math.max(0, c.vt - 1.5); revVideo.play().catch(() => {}); window.scrollTo(0, 0); },
+    async scanAdd() {
+      const sc = st.scan, s = active(); if (!sc || !s) return; const ci = curClip(s); let added = 0, skipped = 0; const base = Date.now();
+      sc.cands.forEach((c, i) => {
+        if (c.l == null || c.r == null) return;
+        if (s.rolls.some(r => r.vt != null && (r.cl || 0) === ci && Math.abs(r.vt - c.vt) < 1.2)) { skipped++; return; }
+        s.rolls.push({ l: c.l, r: c.r, t: base + i, cl: ci, vt: c.vt, auto: true }); added++;
+      });
+      if (s.rolls.every(x => x.vt != null)) s.rolls.sort((p, q) => ((p.cl || 0) - (q.cl || 0)) || (p.vt - q.vt) || (p.t - q.t));
+      await saveSession(s); st.scan = null; render();
+      toast('Added ' + added + ' roll' + (added === 1 ? '' : 's') + (skipped ? ' (' + skipped + ' already logged)' : ''));
+    },
+    skip(el) { revVideo.currentTime = Math.max(0, revVideo.currentTime + (+el.dataset.d)); },
+    playpause() { if (revVideo.paused) revVideo.play().catch(() => {}); else revVideo.pause(); },
+    rate(el) { revVideo.playbackRate = +el.dataset.r; render(); },
+    selRevClip(el) { const s = active(); if (!s) return; if (st.player && st.player.url) URL.revokeObjectURL(st.player.url); st.player = { sid: s.id, ci: +el.dataset.i, url: null }; revVideo.removeAttribute('data-src'); render(); },
+    async copyBackup() { copyText(JSON.stringify({ app: 'dice-tracker', v: 1, sets: st.sets, sessions: st.sessions, settings: st.settings }), 'Backup'); },
+    copyCsv() { if (!st.sessions.length) return toast('Nothing to copy yet'); copyText(DT.toCSV([...st.sessions].sort((a, b) => a.startedAt - b.startedAt), eo()), 'CSV'); },
+    async pasteRestore() { const t = ($('#restoreText') || {}).value || ''; try { await restoreFrom(JSON.parse(t)); } catch (e) { toast('That isn’t a Dice Tracker backup'); } },
+    mOk() { closeModal(); const r = st.askRes; st.askRes = null; if (r) r(true); },
+    mClose() { closeModal(); const r = st.askRes; st.askRes = null; if (r) r(false); },
+  };
+
+  async function restoreFrom(d) {
+    if (!d || d.app !== 'dice-tracker') throw new Error('not a Dice Tracker backup');
+    let ns = 0, nx = 0;
+    for (const x of d.sets || []) if (!st.sets.find(y => y.id === x.id)) { st.sets.push(x); await Store.put('sets', x); ns++; }
+    for (const x of d.sessions || []) if (!st.sessions.find(y => y.id === x.id)) { x.clips = []; st.sessions.push(x); await Store.put('sessions', x); nx++; }
+    toast('Restored ' + ns + ' sets, ' + nx + ' sessions'); render();
+  }
+  async function copyText(text, what) {
+    try { await navigator.clipboard.writeText(text); toast(what + ' copied — paste it into Notes or Mail'); return; } catch (e) { /* fall through */ }
+    modal('<h3>Copy this ' + esc(what) + '</h3><p class="mut small">Press and hold in the box, Select All, Copy.</p><textarea id="copybox" rows="8" readonly>' + esc(text) + '</textarea><button class="pri" style="width:100%;margin-top:10px" data-act="mClose">Done</button>');
+    const t = $('#copybox'); if (t) { t.focus(); t.select(); }
+  }
+  function rollEditor() {
+    const s = st.sessions.find(x => x.id === st.edit.sid);
+    modal('<h3>Roll #' + (st.edit.i + 1) + '</h3><label>Left die</label>' + padHTMLEdit(s.set, 'left', st.edit.l, 'eL') + '<label>Right die</label>' + padHTMLEdit(s.set, 'right', st.edit.r, 'eR') +
+      '<p class="mut">Total: <b>' + (st.edit.l + st.edit.r) + '</b></p><div class="row wrap"><button class="sp ghost" data-act="mClose">Cancel</button><button class="sp dng" data-act="eDel">Delete roll</button><button class="sp pri" data-act="eSave">Save</button></div>');
+  }
+  function padHTMLEdit(set, which, sel, act) {
+    const faces = DT.dieFaces(set[which]);
+    return '<div class="pad">' + [1, 2, 3, 4, 5, 6].map(v => { const i = faces.indexOf(v); return '<button class="' + (i < 4 ? 'on-ax' : 'off-ax') + (sel === v ? ' sel' : '') + '" data-act="' + act + '" data-v="' + v + '">' + v + '<small>' + DT.POS[i] + '</small></button>'; }).join('') + '</div>';
+  }
+  function setEditor(id) {
+    const cur = id ? st.sets.find(x => x.id === id) : { name: '', left: SAMPLE.left, right: SAMPLE.right };
+    const sel = (i, v) => '<select id="' + i + '" data-chg="setPrev">' + [1, 2, 3, 4, 5, 6].map(n => '<option' + (n === v ? ' selected' : '') + '>' + n + '</option>').join('') + '</select>';
+    const die = (p, d, title) => '<h3 style="margin-top:14px">' + title + '</h3><div class="grid3"><div><label>Top</label>' + sel(p + 't', d.top) + '</div><div><label>Facing you</label>' + sel(p + 'f', d.front) + '</div><div><label>Left side</label>' + sel(p + 'l', d.left) + '</div></div><div class="mut small" id="' + p + 'prev" style="margin-top:6px"></div>';
+    modal('<h3>' + (id ? 'Edit dice set' : 'New dice set') + '</h3><label>Name</label><input id="setName" value="' + esc(cur.name) + '" placeholder="e.g. 3V set #1 / red-blue">' +
+      '<p class="mut small" style="margin:10px 0 0">Hold the pair the way you throw it. For each die read the number on top, the number facing you, and the number on its left side — the opposite faces fill in automatically. The left die is whichever one you always treat as “left” (colored or marked dice help).</p>' +
+      die('l', cur.left, 'Left die') + die('r', cur.right, 'Right die') +
+      '<div id="setErr" class="badc small" style="margin-top:8px;min-height:18px"></div><div class="row" style="margin-top:6px"><button class="sp ghost" data-act="mClose">Cancel</button><button class="sp pri" data-act="saveSet" data-id="' + (id || '') + '">Save set</button></div>');
+    updateSetPreview();
+  }
+  function updateSetPreview() {
+    ['l', 'r'].forEach(p => {
+      const d = { top: +$('#' + p + 't').value, front: +$('#' + p + 'f').value, left: +$('#' + p + 'l').value }; const err = DT.validateDie(d);
+      $('#' + p + 'prev').innerHTML = err ? '<span class="badc">' + esc(err) + '</span>' : 'Top ' + d.top + ' · Front ' + d.front + ' · Bottom ' + (7 - d.top) + ' · Back ' + (7 - d.front) + ' · Left ' + d.left + ' · Right ' + (7 - d.left);
+    });
+  }
+
+  /* ================= events & boot ================= */
+  document.addEventListener('click', e => { const el = e.target.closest('[data-act]'); if (!el) return; const fn = A[el.dataset.act]; if (fn) { e.preventDefault(); fn(el, e); } });
+  document.addEventListener('change', e => { const el = e.target.closest('[data-chg]'); if (el && A[el.dataset.chg]) A[el.dataset.chg](el, e); });
+
+  async function boot() {
+    await Store.open();
+    try {
+      st.sets = await Store.all('sets'); st.sessions = await Store.all('sessions');
+      const meta = await Store.all('meta'); meta.forEach(m => { if (m.key === 'settings') st.settings = { ...DEFAULTS, ...m.value }; if (m.key === 'activeId') st.activeId = m.value; });
+      await recoverClips();
+    } catch (e) { /* start empty */ }
+    if (st.activeId && !st.sessions.find(s => s.id === st.activeId && !s.endedAt)) st.activeId = null;
+    if (st.activeId && st.settings.wake) wake(true);
+    render();
+  }
+  window.__dt = { st, A, Store, render }; // handy for debugging / tests
+  boot();
+})();
+
+</script>
+
+</body>
+</html>
