@@ -1249,7 +1249,10 @@ textarea{font:inherit;color:var(--ink);background:#0d2016;border:1px solid var(-
       const s = { id: el.dataset.id || uid(), name: $('#setName').value.trim(), left: { top: g('lt'), front: g('lf'), left: g('ll') }, right: { top: g('rt'), front: g('rf'), left: g('rl') } };
       const err = DT.validateSet(s); if (err) { $('#setErr').textContent = err; return; }
       const i = st.sets.findIndex(x => x.id === s.id); if (i >= 0) st.sets[i] = s; else st.sets.push(s);
-      await Store.put('sets', s); closeModal(); render(); toast('Set saved');
+      let saveErr = null;
+      try { await Store.put('sets', s); } catch (e) { saveErr = e; }
+      closeModal(); render();
+      toast(saveErr ? 'Set kept for now, but phone storage failed (' + ((saveErr && saveErr.name) || 'error') + '). Use More → Backup soon.' : 'Set saved');
     },
     async delSet(el) {
       const s = st.sets.find(x => x.id === el.dataset.id); if (!s) return;
@@ -1369,6 +1372,7 @@ textarea{font:inherit;color:var(--ink);background:#0d2016;border:1px solid var(-
   }
 
   /* ================= events & boot ================= */
+  window.addEventListener('unhandledrejection', e => { try { toast('Something went wrong: ' + ((e.reason && (e.reason.message || e.reason.name)) || e.reason)); } catch (_) {} });
   document.addEventListener('click', e => { const el = e.target.closest('[data-act]'); if (!el) return; const fn = A[el.dataset.act]; if (fn) { e.preventDefault(); fn(el, e); } });
   document.addEventListener('change', e => { const el = e.target.closest('[data-chg]'); if (el && A[el.dataset.chg]) A[el.dataset.chg](el, e); });
 
